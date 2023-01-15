@@ -14,4 +14,5 @@ import lombok.Getter;
 public class GeneratorResult {
     private final String markdown;
     private final String path;
+    private final String name;
 }

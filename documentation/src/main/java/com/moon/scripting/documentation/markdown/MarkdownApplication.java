@@ -1,13 +1,24 @@
 package com.moon.scripting.documentation.markdown;
 
 import com.moon.scripting.documentation.markdown.file.ClassFileLoader;
+import com.moon.scripting.documentation.markdown.generator.GeneratorResult;
 import com.moon.scripting.documentation.markdown.processor.ClassProcessor;
+import com.moon.scripting.documentation.markdown.util.FileUtils;
+import net.steppschuh.markdowngenerator.link.Link;
+import net.steppschuh.markdowngenerator.list.ListBuilder;
+import net.steppschuh.markdowngenerator.text.heading.Heading;
 import org.objectweb.asm.tree.ClassNode;
 import org.tinylog.Logger;
 import org.tinylog.TaggedLogger;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.zip.ZipFile;
 
 /**
@@ -19,6 +30,7 @@ import java.util.zip.ZipFile;
  * @since 1.0.0
  */
 public class MarkdownApplication {
+    private static final File OUTPUT_PATH = new File("generated");
     private static final TaggedLogger LOGGER = Logger.tag("docgen");
 
     /**
@@ -45,9 +57,54 @@ public class MarkdownApplication {
      * @since 1.0.0
      */
     private void processNodes(List<ClassNode> nodes) {
+        // Delete output path if existing
+        if (OUTPUT_PATH.exists()) {
+            OUTPUT_PATH.delete();
+        }
+        //noinspection ResultOfMethodCallIgnored
+        OUTPUT_PATH.mkdirs();
+
+        StringBuilder summaryContent = new StringBuilder();
+        Map<String, List<GeneratorResult>> categoryMap = new HashMap<>();
+        summaryContent.append(new Heading("Summary", 1)).append("\n");
         for (ClassNode node : nodes) {
             ClassProcessor processor = new ClassProcessor(node);
-            processor.process();
+            GeneratorResult result = processor.process();
+            if (result != null) {
+                // Create list of generator results for category if absent
+                String path = result.getPath().split("/")[0];
+                List<GeneratorResult> results = categoryMap.computeIfAbsent(path, (k) -> new ArrayList<>());
+
+                results.add(result);
+            }
+        }
+
+        ListBuilder categoryList = new ListBuilder();
+        categoryList.append(new Link("Introduction", "README.md"));
+        for (String path : categoryMap.keySet()) {
+            List<GeneratorResult> results = categoryMap.get(path);
+            ListBuilder linkList = new ListBuilder();
+            for (GeneratorResult result : results) {
+                linkList.append(new Link(result.getName(), result.getPath() + ".md"));
+            }
+            categoryList.append(new Link(path, path + ".md"));
+            categoryList.append(linkList);
+        }
+        summaryContent.append(categoryList);
+
+        File outputFile = new File(OUTPUT_PATH, "SUMMARY.md");
+        FileUtils.saveFile(outputFile, summaryContent.toString());
+
+        File readmeFile = new File(OUTPUT_PATH, "README.md");
+        try {
+            InputStream readmeStream = getClass().getResourceAsStream("/README.md");
+            if (readmeStream == null) {
+                LOGGER.error("Could not find readme file in classpath, does it exist?");
+                return;
+            }
+            FileUtils.saveFile(readmeFile, new String(readmeStream.readAllBytes()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

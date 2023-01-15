@@ -1,0 +1,35 @@
+package com.moon.scripting.api.types;
+
+import com.moon.scripting.documentation.annotation.DataClassContainer;
+import com.moon.scripting.documentation.annotation.Description;
+import com.moon.scripting.documentation.annotation.Parameter;
+
+@DataClassContainer(
+    value = "vec2f",
+    path = "types/vec2f"
+)
+@Description("A two-dimensional vector representation")
+public class Vector2f {
+    public float x;
+    public float y;
+
+    /**
+     * Adds the given parameters to the vector
+     *
+     * @param x The x pos
+     * @param y The y pos
+     * @since 1.0.0
+     */
+    @Description("Adds the given parameters to the vector values")
+    public void add(
+        @Parameter("x")
+        @Description("The value added to x")
+        float x,
+        @Parameter("y")
+        @Description("The value added to y")
+        float y
+    ) {
+        this.x += x;
+        this.y += y;
+    }
+}

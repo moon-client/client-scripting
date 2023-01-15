@@ -38,7 +38,7 @@ public class ClassProcessor {
      *
      * @since 1.0.0
      */
-    public void process() {
+    public GeneratorResult process() {
         GeneratorType type = resolveGeneratorType();
         // Only process classes with a generator type
         if (type != null) {
@@ -66,7 +66,9 @@ public class ClassProcessor {
                 e.printStackTrace();
             }
             LOGGER.info("Saved documentation for class " + node.name);
+            return result;
         }
+        return null;
     }
 
     /**

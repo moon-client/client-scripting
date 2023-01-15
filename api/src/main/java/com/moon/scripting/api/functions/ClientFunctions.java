@@ -5,8 +5,8 @@ import com.moon.scripting.documentation.annotation.FunctionContainer;
 import com.moon.scripting.documentation.annotation.Parameter;
 
 @FunctionContainer(
-    value = "Client",
-    path = "functions/Client"
+    value = "client",
+    path = "functions/client"
 )
 @Description("Contains several functions to control and get information from the client")
 public interface ClientFunctions {
