@@ -68,12 +68,14 @@ public class FunctionGenerator extends Generator {
             String[] returnPats = fullReturnType.split("\\.");
             String returnTypeName = returnPats[returnPats.length - 1].toLowerCase();
             Type[] parameters = methodType.getArgumentTypes();
+
             // Handle parameters if there are any
             Table.Builder tableBuilder = new Table.Builder().addRow("name", "type", "description");
+            List<ParsedParameter> parsedParameters = new ArrayList<>();
+            boolean containsParams = false;
             if (parameters.length > 0) {
                 List<AnnotationNode>[] parameterAnnotations = method.visibleParameterAnnotations;
                 if (parameterAnnotations != null) {
-                    List<ParsedParameter> parsedParameters = new ArrayList<>();
                     for (int i = 0; i < parameters.length; i++) {
                         Type parameter = parameters[i];
                         List<AnnotationNode> annotations = parameterAnnotations[i];
@@ -97,19 +99,20 @@ public class FunctionGenerator extends Generator {
                         tableBuilder.addRow(paramName, className, description);
                         parsedParameters.add(new ParsedParameter(paramName, className));
                     }
-                    generated.append(new CodeBlock(buildFancySyntax(method.name, returnTypeName, parsedParameters), ""))
-                        .append("\n");
-                    generated.append(new Heading("Parameters", 4)).append("\n").append("\n");
-                    generated.append(tableBuilder.build().serialize()).append("\n").append("\n");
-                } else {
-                    generated.append(new CodeBlock(buildFancySyntax(method.name, returnTypeName, List.of()), ""))
-                        .append("\n");
-                    generated.append(new Heading("Parameters", 4)).append("\n").append("\n");
-                    generated.append(new BoldText("No parameters found")).append("\n").append("\n");
+                    containsParams = true;
                 }
+            }
+            generated.append(new CodeBlock(buildFancySyntax(method.name, returnTypeName, parsedParameters), ""))
+                .append("\n");
+
+            // Add parameters if contained, otherwise add a note
+            if (containsParams) {
+                generated.append(new Heading("Parameters", 4)).append("\n").append("\n");
+                generated.append(tableBuilder.build().serialize()).append("\n").append("\n");
             } else {
                 generated.append(new BoldText("This method does not have any parameters")).append("\n").append("\n");
             }
+
             // Provide example code if available
             if (exampleNode != null) {
                 generated.append(new Heading("Example", 4)).append("\n").append("\n");
