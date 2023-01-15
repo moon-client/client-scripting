@@ -14,7 +14,8 @@ import lombok.RequiredArgsConstructor;
 public enum GeneratorType {
     DATA("Lcom/moon/scripting/documentation/annotation/DataClassContainer;"),
     FUNCTION("Lcom/moon/scripting/documentation/annotation/FunctionContainer;"),
-    ENUM("Lcom/moon/scripting/documentation/annotation/EnumContainer;");
+    ENUM("Lcom/moon/scripting/documentation/annotation/EnumContainer;"),
+    TABLE_INFO("Lcom/moon/scripting/documentation/annotation/TableInfoContainer;");
     private final String desc;
 
     /**

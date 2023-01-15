@@ -3,7 +3,7 @@ package com.moon.scripting.documentation.markdown.generator;
 import com.moon.scripting.documentation.markdown.generator.type.DataClassGenerator;
 import com.moon.scripting.documentation.markdown.generator.type.EnumGenerator;
 import com.moon.scripting.documentation.markdown.generator.type.FunctionGenerator;
-
+import com.moon.scripting.documentation.markdown.generator.type.TableInfoGenerator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +18,7 @@ public class GeneratorFactory {
         put(GeneratorType.DATA, new DataClassGenerator());
         put(GeneratorType.ENUM, new EnumGenerator());
         put(GeneratorType.FUNCTION, new FunctionGenerator());
+        put(GeneratorType.TABLE_INFO, new TableInfoGenerator());
     }};
 
     /**
