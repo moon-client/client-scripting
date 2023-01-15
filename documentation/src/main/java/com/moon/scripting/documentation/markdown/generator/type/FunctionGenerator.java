@@ -33,7 +33,6 @@ public class FunctionGenerator extends Generator {
         StringBuilder generated = new StringBuilder();
         AnnotationNode funcNode = findAnnotation(node, AnnotationMappings.getMappingsFor(FunctionContainer.class));
         AnnotationNode descNode = findAnnotation(node, AnnotationMappings.getMappingsFor(Description.class));
-        AnnotationNode exampleNode = findAnnotation(node, AnnotationMappings.getMappingsFor(ExampleCode.class));
         // Append class name if present
         String name = "No name found";
         if (funcNode != null) {
@@ -52,6 +51,7 @@ public class FunctionGenerator extends Generator {
                 continue;
             }
 
+            AnnotationNode exampleNode = findAnnotation(node, AnnotationMappings.getMappingsFor(ExampleCode.class));
             generated.append(new Heading(method.name, 2)).append("\n");
             AnnotationNode methodDescNode = findAnnotation(method,
                 AnnotationMappings.getMappingsFor(Description.class));
@@ -101,7 +101,7 @@ public class FunctionGenerator extends Generator {
             // Provide example code if available
             if (exampleNode != null) {
                 generated.append(new Heading("Example", 4)).append("\n").append("\n");
-                generated.append(new CodeBlock((String) findAnnotationValue(exampleNode, "value"), "lua")).append("\n");
+                generated.append(new CodeBlock(findAnnotationValue(exampleNode, "value"), "lua")).append("\n");
             }
         }
         return GeneratorResult.builder()
