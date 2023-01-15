@@ -89,10 +89,12 @@ public class TableInfoGenerator extends Generator {
                     }
                     generated.append(tableBuilder.build().serialize()).append("\n").append("\n");
                 } else {
-                    generated.append(new BoldText("No parameters found")).append("\n").append("\n");
+                    generated.append(new BoldText("This method does not require any parameters"))
+                        .append("\n")
+                        .append("\n");
                 }
             } else {
-                generated.append(new BoldText("This method does not have any parameters")).append("\n").append("\n");
+                generated.append(new BoldText("This method does not require any parameters")).append("\n").append("\n");
             }
         }
         return GeneratorResult.builder()
