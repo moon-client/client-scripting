@@ -9,6 +9,6 @@ import com.moon.scripting.documentation.annotation.EnumContainer;
 )
 @Description("All event types you can hook using the event system")
 public enum EventType {
-    @Description("The pre and post motion update event")
-    UPDATE
+    @Description("Called at start of tick (20 t/s)")
+    TICK
 }
