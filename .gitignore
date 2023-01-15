@@ -4,6 +4,7 @@
 !documentation/
 !api/
 !book/
+!webhook/
 !.gitignore
 !build.gradle.kts
 !gradlew
