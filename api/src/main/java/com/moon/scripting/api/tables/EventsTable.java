@@ -8,7 +8,7 @@ import com.moon.scripting.documentation.annotation.TableInfoContainer;
     value = "events",
     path = "tables/events"
 )
-@Description("Contains all events you can hook when creating a module table.<br>**BEWARE:** If an event has any parameters, you need to add a generalized event argument to your function, NOT THE PARAMETERS THEMSELVES. You can access all the parameters from the generalized accessor!")
+@Description("Contains all events you can hook when creating a module table.<br>**BEWARE:** If an event has any parameters, you need to add a generalized event argument to your function, NOT THE PARAMETERS THEMSELVES. You can access all the event parameters from the argument!")
 public interface EventsTable {
     @Description("Called once the module is enabled")
     void on_enable();
