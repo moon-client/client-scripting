@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("application")
 }
 
 group = "com.moon"
@@ -22,6 +23,10 @@ dependencies {
     implementation("org.tinylog:tinylog-api:2.5.0")
     implementation("org.tinylog:tinylog-impl:2.5.0")
     implementation(files("lib/markdown.jar"))
+}
+
+application {
+    mainClass.set("com.moon.scripting.documentation.markdown.MarkdownBootstrap")
 }
 
 tasks.getByName<Test>("test") {

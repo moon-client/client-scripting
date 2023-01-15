@@ -3,9 +3,11 @@
 !gradle/
 !documentation/
 !api/
+!book/
 !.gitignore
 !build.gradle.kts
 !gradlew
 !gradlew.bat
 !README.md
 !settings.gradle.kts
+!deploy.sh
