@@ -1,6 +1,7 @@
 package com.moon.scripting.api.functions;
 
 import com.moon.scripting.documentation.annotation.Description;
+import com.moon.scripting.documentation.annotation.ExampleCode;
 import com.moon.scripting.documentation.annotation.FunctionContainer;
 import com.moon.scripting.documentation.annotation.Parameter;
 import org.luaj.vm2.LuaTable;
@@ -12,6 +13,14 @@ import org.luaj.vm2.LuaTable;
 @Description("Contains functions to create modules and settings for them")
 public interface ModulesFunctions {
     @Description("Used to register new modules in the client")
+    @ExampleCode("""
+        local module = {
+            on_enable = function()
+                client:print('The module has been enabled!')
+            end,
+        }
+        -- Register
+        modules:register("YourModule", "Your Module", module)""")
     void register(
         @Parameter("name")
         @Description("The name of the module")

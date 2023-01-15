@@ -3,6 +3,7 @@ package com.moon.scripting.documentation.markdown.processor;
 import com.moon.scripting.documentation.annotation.DataClassContainer;
 import com.moon.scripting.documentation.annotation.Description;
 import com.moon.scripting.documentation.annotation.EnumContainer;
+import com.moon.scripting.documentation.annotation.ExampleCode;
 import com.moon.scripting.documentation.annotation.FunctionContainer;
 import com.moon.scripting.documentation.annotation.Parameter;
 import com.moon.scripting.documentation.annotation.TableInfoContainer;
@@ -24,6 +25,7 @@ public class AnnotationMappings {
         put(FunctionContainer.class, "Lcom/moon/scripting/documentation/annotation/FunctionContainer;");
         put(Parameter.class, "Lcom/moon/scripting/documentation/annotation/Parameter;");
         put(TableInfoContainer.class, "Lcom/moon/scripting/documentation/annotation/TableInfoContainer;");
+        put(ExampleCode.class, "Lcom/moon/scripting/documentation/annotation/ExampleCode;");
     }};
 
     /**

@@ -1,6 +1,7 @@
 package com.moon.scripting.documentation.markdown.generator.type;
 
 import com.moon.scripting.documentation.annotation.Description;
+import com.moon.scripting.documentation.annotation.ExampleCode;
 import com.moon.scripting.documentation.annotation.FunctionContainer;
 import com.moon.scripting.documentation.annotation.Parameter;
 import com.moon.scripting.documentation.markdown.generator.Generator;
@@ -9,6 +10,7 @@ import com.moon.scripting.documentation.markdown.generator.type.visitor.Annotati
 import com.moon.scripting.documentation.markdown.processor.AnnotationMappings;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.Text;
+import net.steppschuh.markdowngenerator.text.code.CodeBlock;
 import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 import org.objectweb.asm.Type;
@@ -31,6 +33,7 @@ public class FunctionGenerator extends Generator {
         StringBuilder generated = new StringBuilder();
         AnnotationNode funcNode = findAnnotation(node, AnnotationMappings.getMappingsFor(FunctionContainer.class));
         AnnotationNode descNode = findAnnotation(node, AnnotationMappings.getMappingsFor(Description.class));
+        AnnotationNode exampleNode = findAnnotation(node, AnnotationMappings.getMappingsFor(ExampleCode.class));
         // Append class name if present
         String name = "No name found";
         if (funcNode != null) {
@@ -94,6 +97,11 @@ public class FunctionGenerator extends Generator {
                 }
             } else {
                 generated.append(new BoldText("This method does not have any parameters")).append("\n").append("\n");
+            }
+            // Provide example code if available
+            if (exampleNode != null) {
+                generated.append(new Heading("Example", 4)).append("\n").append("\n");
+                generated.append(new CodeBlock((String) findAnnotationValue(exampleNode, "value"), "lua")).append("\n");
             }
         }
         return GeneratorResult.builder()
