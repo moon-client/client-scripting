@@ -15,4 +15,6 @@ cp -a ./documentation/generated/. ./book/src
 cd book
 cargo install mdbook
 mdbook build
+rm -r ./var/www/doc
+mkdir ./var/www/doc
 cp -a ./book/. /var/www/doc
