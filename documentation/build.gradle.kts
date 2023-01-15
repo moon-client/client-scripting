@@ -1,9 +1,10 @@
 plugins {
     id("java")
     id("application")
+    `maven-publish`
 }
 
-group = "com.moon"
+group = "com.moon.scripting"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -31,4 +32,27 @@ application {
 
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "${project.group}"
+            artifactId = "documentation"
+            version = "${project.version}"
+            from(components["java"])
+        }
+    }
+    repositories {
+        // The aids dependency repository
+        maven {
+            name = "aids"
+            url = uri("https://aids.moonclient.xyz")
+            credentials {
+                username = "aids"
+                password = project.property("com.moon.aids.token").toString()
+            }
+            authentication { create<BasicAuthentication>("header") }
+        }
+    }
 }
