@@ -97,12 +97,12 @@ public class FunctionGenerator extends Generator {
                         tableBuilder.addRow(paramName, className, description);
                         parsedParameters.add(new ParsedParameter(paramName, className));
                     }
-                    generated.append(new CodeBlock(buildFancySyntax(method.name, returnTypeName, parsedParameters), "lua"))
+                    generated.append(new CodeBlock(buildFancySyntax(method.name, returnTypeName, parsedParameters), ""))
                         .append("\n");
                     generated.append(new Heading("Parameters", 4)).append("\n").append("\n");
                     generated.append(tableBuilder.build().serialize()).append("\n").append("\n");
                 } else {
-                    generated.append(new CodeBlock(buildFancySyntax(method.name, returnTypeName, List.of()), "lua"))
+                    generated.append(new CodeBlock(buildFancySyntax(method.name, returnTypeName, List.of()), ""))
                         .append("\n");
                     generated.append(new Heading("Parameters", 4)).append("\n").append("\n");
                     generated.append(new BoldText("No parameters found")).append("\n").append("\n");
