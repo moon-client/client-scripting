@@ -6,8 +6,9 @@ import com.moon.scripting.documentation.annotation.FunctionContainer;
 import com.moon.scripting.documentation.annotation.Parameter;
 import com.moon.scripting.documentation.markdown.generator.Generator;
 import com.moon.scripting.documentation.markdown.generator.GeneratorResult;
-import com.moon.scripting.documentation.markdown.generator.type.visitor.AnnotationValueVisitor;
 import com.moon.scripting.documentation.markdown.processor.AnnotationMappings;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.Text;
 import net.steppschuh.markdowngenerator.text.code.CodeBlock;
@@ -17,7 +18,7 @@ import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.MethodNode;
-import org.objectweb.asm.tree.ParameterNode;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,13 +63,17 @@ public class FunctionGenerator extends Generator {
             }
 
             Type methodType = Type.getMethodType(method.desc);
+            Type returnType = Type.getReturnType(method.desc);
+            String fullReturnType = returnType.getClassName();
+            String[] returnPats = fullReturnType.split("\\.");
+            String returnTypeName = returnPats[returnPats.length - 1].toLowerCase();
             Type[] parameters = methodType.getArgumentTypes();
             // Handle parameters if there are any
+            Table.Builder tableBuilder = new Table.Builder().addRow("name", "type", "description");
             if (parameters.length > 0) {
                 List<AnnotationNode>[] parameterAnnotations = method.visibleParameterAnnotations;
                 if (parameterAnnotations != null) {
-                    generated.append(new Heading("Parameters", 4)).append("\n").append("\n");
-                    Table.Builder tableBuilder = new Table.Builder().addRow("name", "type", "description");
+                    List<ParsedParameter> parsedParameters = new ArrayList<>();
                     for (int i = 0; i < parameters.length; i++) {
                         Type parameter = parameters[i];
                         List<AnnotationNode> annotations = parameterAnnotations[i];
@@ -90,9 +95,16 @@ public class FunctionGenerator extends Generator {
                         String[] namePats = fullClassName.split("\\.");
                         String className = namePats[namePats.length - 1].toLowerCase();
                         tableBuilder.addRow(paramName, className, description);
+                        parsedParameters.add(new ParsedParameter(paramName, className));
                     }
+                    generated.append(new CodeBlock(buildFancySyntax(method.name, returnTypeName, parsedParameters), ""))
+                        .append("\n");
+                    generated.append(new Heading("Parameters", 4)).append("\n").append("\n");
                     generated.append(tableBuilder.build().serialize()).append("\n").append("\n");
                 } else {
+                    generated.append(new CodeBlock(buildFancySyntax(method.name, returnTypeName, List.of()), ""))
+                        .append("\n");
+                    generated.append(new Heading("Parameters", 4)).append("\n").append("\n");
                     generated.append(new BoldText("No parameters found")).append("\n").append("\n");
                 }
             } else {
@@ -109,5 +121,37 @@ public class FunctionGenerator extends Generator {
             .path(path)
             .name(name)
             .build();
+    }
+
+    /**
+     * Builds a fancy syntax string
+     *
+     * @param methodName The method name
+     * @param returnType The fancy return type
+     * @param parameters The parameters
+     * @return The fancy syntax
+     * @since 1.0.0
+     */
+    private String buildFancySyntax(String methodName, String returnType, List<ParsedParameter> parameters) {
+        StringBuilder syntax = new StringBuilder();
+        syntax.append(methodName).append("(");
+        // Add params
+        for (int i = 0; i < parameters.size(); i++) {
+            ParsedParameter parameter = parameters.get(i);
+            syntax.append(parameter.name).append(": ").append(parameter.fancyType);
+            // Append spliterator if necessary
+            if (i < parameters.size() - 1) {
+                syntax.append(", ");
+            }
+        }
+        syntax.append("): ").append(returnType);
+        return syntax.toString();
+    }
+
+    @Getter
+    @AllArgsConstructor
+    private class ParsedParameter {
+        private final String name;
+        private final String fancyType;
     }
 }
