@@ -16,7 +16,7 @@ public class WebhookServer {
             BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;
             while ((line = input.readLine()) != null) {
-                System.out.println("LOG:" + line);
+                System.out.println("[Script Output] " + line);
             }
             System.out.println("Deployed");
             ctx.html("");
