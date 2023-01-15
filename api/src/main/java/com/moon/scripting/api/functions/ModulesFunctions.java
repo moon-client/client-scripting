@@ -20,7 +20,7 @@ public interface ModulesFunctions {
         @Description("The display name of the module, used in arraylist and clickgui")
         String displayName,
         @Parameter("table")
-        @Description("The module table containing all event hooks, you can find all events [here](../tables/events)")
+        @Description("The module table containing all event hooks, you can find all available events [here](../tables/events.md)")
         LuaTable table
     );
 }
