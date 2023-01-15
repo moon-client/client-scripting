@@ -88,15 +88,7 @@ public class TableInfoGenerator extends Generator {
                         tableBuilder.addRow(paramName, className, description);
                     }
                     generated.append(tableBuilder.build().serialize()).append("\n").append("\n");
-                } else {
-                    generated.append(new BoldText("This table method does not require any parameters"))
-                        .append("\n")
-                        .append("\n");
                 }
-            } else {
-                generated.append(new BoldText("This table method does not require any parameters"))
-                    .append("\n")
-                    .append("\n");
             }
         }
         return GeneratorResult.builder()
