@@ -28,13 +28,14 @@ public class TableInfoGenerator extends Generator {
     public GeneratorResult generate(ClassNode node) {
         String path = "";
         StringBuilder generated = new StringBuilder();
-        AnnotationNode funcNode = findAnnotation(node, AnnotationMappings.getMappingsFor(TableInfoContainer.class));
+        AnnotationNode tableNode = findAnnotation(node, AnnotationMappings.getMappingsFor(TableInfoContainer.class));
         AnnotationNode descNode = findAnnotation(node, AnnotationMappings.getMappingsFor(Description.class));
         // Append class name if present
         String name = "No name found";
-        if (funcNode != null) {
-            name = (String) findAnnotationValue(funcNode, "value");
-            path = (String) findAnnotationValue(funcNode, "path");
+        System.out.println(tableNode);
+        if (tableNode != null) {
+            name = (String) findAnnotationValue(tableNode, "value");
+            path = (String) findAnnotationValue(tableNode, "path");
             generated.append(new Heading(name, 1)).append("\n");
         }
         // Append class description if present
