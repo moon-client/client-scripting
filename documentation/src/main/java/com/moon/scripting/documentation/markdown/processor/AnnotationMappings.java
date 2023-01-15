@@ -5,6 +5,7 @@ import com.moon.scripting.documentation.annotation.Description;
 import com.moon.scripting.documentation.annotation.EnumContainer;
 import com.moon.scripting.documentation.annotation.FunctionContainer;
 import com.moon.scripting.documentation.annotation.Parameter;
+import com.moon.scripting.documentation.annotation.TableInfoContainer;
 import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +23,7 @@ public class AnnotationMappings {
         put(EnumContainer.class, "Lcom/moon/scripting/documentation/annotation/EnumContainer;");
         put(FunctionContainer.class, "Lcom/moon/scripting/documentation/annotation/FunctionContainer;");
         put(Parameter.class, "Lcom/moon/scripting/documentation/annotation/Parameter;");
+        put(TableInfoContainer.class, "Lcom/moon/scripting/documentation/annotation/TableInfoContainer;");
     }};
 
     /**

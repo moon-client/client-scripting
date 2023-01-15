@@ -32,7 +32,6 @@ public class TableInfoGenerator extends Generator {
         AnnotationNode descNode = findAnnotation(node, AnnotationMappings.getMappingsFor(Description.class));
         // Append class name if present
         String name = "No name found";
-        System.out.println(tableNode);
         if (tableNode != null) {
             name = (String) findAnnotationValue(tableNode, "value");
             path = (String) findAnnotationValue(tableNode, "path");
