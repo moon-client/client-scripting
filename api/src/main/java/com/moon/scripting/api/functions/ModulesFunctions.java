@@ -17,7 +17,7 @@ public interface ModulesFunctions {
         local module = {
             on_enable = function()
                 client:print('The module has been enabled!')
-            end,
+            end
         }
         -- Register
         modules:register("YourModule", "Your Module", module)""")
