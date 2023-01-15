@@ -51,7 +51,7 @@ public class FunctionGenerator extends Generator {
                 continue;
             }
 
-            AnnotationNode exampleNode = findAnnotation(node, AnnotationMappings.getMappingsFor(ExampleCode.class));
+            AnnotationNode exampleNode = findAnnotation(method, AnnotationMappings.getMappingsFor(ExampleCode.class));
             generated.append(new Heading(method.name, 2)).append("\n");
             AnnotationNode methodDescNode = findAnnotation(method,
                 AnnotationMappings.getMappingsFor(Description.class));
