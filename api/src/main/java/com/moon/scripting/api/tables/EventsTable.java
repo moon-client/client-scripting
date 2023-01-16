@@ -26,7 +26,7 @@ public interface EventsTable {
     @Description("Called before and after client position update, this is done once every tick.")
     void on_update(
         @Parameter("pre")
-        @Description("Whether the event was invoked before or after sending the position updates to the server. Keep in mind position, rotation and ground attributes can only be modified when this is true, otherwise changes will be ignored.")
+        @Description("Whether the event was invoked before or after sending the position updates to the server. Keep in mind position, rotation and ground attributes can only be modified when this is true, otherwise changes will be ignored")
         boolean pre,
         @Parameter("x")
         @Description("The x position sent to the server")
@@ -48,7 +48,7 @@ public interface EventsTable {
         boolean ground
     );
 
-    @Description("Called before the movement of the player gets applied")
+    @Description("Called before the movement of the player gets applied<br>Mainly used to make the player strafe or move faster")
     void on_move(
         @Parameter("x")
         @Description("The x motion used to apply the move")
