@@ -8,7 +8,7 @@ import com.moon.scripting.documentation.annotation.TableInfoContainer;
     value = "events",
     path = "tables/events"
 )
-@Description("Contains all events you can hook when creating a module table.<br>**BEWARE:** If an event has any parameters, you need to add a generalized event argument to your function, NOT THE PARAMETERS THEMSELVES. You can access all the event parameters from the argument!")
+@Description("Contains all events you can hook while creating a module table.<br>**BEWARE:** If an event has any parameters, you need to add a generalized event argument to your function, NOT THE PARAMETERS THEMSELVES. You can access all the event parameters from the argument!")
 public interface EventsTable {
     @Description("Called once the module is enabled")
     void on_enable();
@@ -21,5 +21,43 @@ public interface EventsTable {
         @Parameter("pre")
         @Description("Defines if the event was called pre or post tick")
         boolean pre
+    );
+
+    @Description("Called before and after client position update, this is done once every tick.")
+    void on_update(
+        @Parameter("pre")
+        @Description("Whether the event was invoked before or after sending the position updates to the server. Keep in mind position, rotation and ground attributes can only be modified when this is true, otherwise changes will be ignored.")
+        boolean pre,
+        @Parameter("x")
+        @Description("The x position sent to the server")
+        double x,
+        @Parameter("y")
+        @Description("The y position sent to the server")
+        double y,
+        @Parameter("z")
+        @Description("The z position sent to the server")
+        double z,
+        @Parameter("yaw")
+        @Description("The yaw rotation sent to the server (Will update the third-person rotations once modified)")
+        float yaw,
+        @Parameter("pitch")
+        @Description("The pitch rotation sent to the server (Will update the third-person rotations once modified)")
+        float pitch,
+        @Parameter("ground")
+        @Description("The ground state sent to the server")
+        boolean ground
+    );
+
+    @Description("Called before the movement of the player gets applied")
+    void on_move(
+        @Parameter("x")
+        @Description("The x motion used to apply the move")
+        double x,
+        @Parameter("y")
+        @Description("The y motion used to apply the move")
+        double y,
+        @Parameter("z")
+        @Description("The z motion used to apply the move")
+        double z
     );
 }
