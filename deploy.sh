@@ -2,7 +2,7 @@ git pull
 
 # Build and move api jar
 ./gradlew :api:jar
-cp ./api/build/libs/api-1.0.3-SNAPSHOT.jar ./documentation/input.jar
+cp ./api/build/libs/api-1.0.4-SNAPSHOT.jar ./documentation/input.jar
 
 # Generate documentation and move to book src
 ./gradlew :documentation:run
