@@ -48,7 +48,7 @@ public class TableInfoGenerator extends Generator {
                 continue;
             }
 
-            generated.append(new Heading(method.name, 2)).append("\n");
+            generated.append(new Heading(method.name + "()", 2)).append("\n");
             AnnotationNode methodDescNode = findAnnotation(method,
                 AnnotationMappings.getMappingsFor(Description.class));
             // Append method description if present
