@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.moon.scripting"
-version = "1.0-SNAPSHOT"
+version = "1.0.2-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -37,7 +37,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "${project.group}"
             artifactId = "api"
-            version = "${project.version}"
+            version = version
             from(components["java"])
         }
     }
