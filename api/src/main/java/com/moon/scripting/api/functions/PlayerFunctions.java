@@ -156,6 +156,6 @@ public interface PlayerFunctions {
     @Description("Returns the players entity id")
     int get_id();
 
-    @Description("Returns the players facing<br>1: DOWN<br>2: UP<br>3: NORTH<br>4: SOUTH<br>5: WEST<br>6: EAST")
+    @Description("Returns the players facing<br>For reference please click [here](../enums/facing.md)")
     Facing get_facing();
 }
