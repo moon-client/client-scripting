@@ -13,11 +13,11 @@ import com.moon.scripting.documentation.annotation.Description;
 public class RayCastResult {
     public HitType hit_type;
     public Facing side_hit;
-    public Vector3i pos;
-    public Vector3d hit_vec;
+    public Vec3i pos;
+    public Vec3d hit_vec;
     public int hit_entity_id;
 
-    public RayCastResult(HitType hit_type, Facing side_hit, Vector3i pos, Vector3d hit_vec, int hit_entity_id) {
+    public RayCastResult(HitType hit_type, Facing side_hit, Vec3i pos, Vec3d hit_vec, int hit_entity_id) {
         this.hit_type = hit_type;
         this.side_hit = side_hit;
         this.pos = pos;

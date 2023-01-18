@@ -4,21 +4,21 @@ import com.moon.scripting.documentation.annotation.DataClassContainer;
 import com.moon.scripting.documentation.annotation.Description;
 
 @DataClassContainer(
-    value = "vector3f",
-    path = "types/vector3f"
+    value = "vec3f",
+    path = "types/vec3f"
 )
 @Description("A three-dimensional float based vector representation")
-public class Vector3f {
+public class Vec3f {
     public float x;
     public float y;
     public float z;
 
-    public Vector3f(float x, float y, float z) {
+    public Vec3f(float x, float y, float z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public Vector3f() {
+    public Vec3f() {
     }
 }

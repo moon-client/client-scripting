@@ -9,16 +9,16 @@ import com.moon.scripting.documentation.annotation.Parameter;
     path = "types/vec2f"
 )
 @Description("A two-dimensional float based vector representation")
-public class Vector2f {
+public class Vec2f {
     public float x;
     public float y;
 
-    public Vector2f(float x, float y) {
+    public Vec2f(float x, float y) {
         this.x = x;
         this.y = y;
     }
 
-    public Vector2f() {
+    public Vec2f() {
     }
 
     /**

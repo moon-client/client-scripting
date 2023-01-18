@@ -2,9 +2,9 @@ package com.moon.scripting.api.functions;
 
 import com.moon.scripting.api.enums.Facing;
 import com.moon.scripting.api.types.RayCastResult;
-import com.moon.scripting.api.types.Vector2f;
-import com.moon.scripting.api.types.Vector3d;
-import com.moon.scripting.api.types.Vector3i;
+import com.moon.scripting.api.types.Vec2f;
+import com.moon.scripting.api.types.Vec3d;
+import com.moon.scripting.api.types.Vec3i;
 import com.moon.scripting.documentation.annotation.Description;
 import com.moon.scripting.documentation.annotation.FunctionContainer;
 import com.moon.scripting.documentation.annotation.Parameter;
@@ -23,10 +23,10 @@ public interface PlayerFunctions {
         int slot,
         @Parameter("block_pos")
         @Description("The position of the block to place on")
-        Vector3i blockPos,
+        Vec3i blockPos,
         @Parameter("hit_vec")
         @Description("The hit vector")
-        Vector3d hitVec,
+        Vec3d hitVec,
         @Parameter("facing")
         @Description("The facing placed on")
         Facing facing
@@ -115,7 +115,7 @@ public interface PlayerFunctions {
     void set_motion(
         @Parameter("motion")
         @Description("The new motion as a vector")
-        Vector3d motion
+        Vec3d motion
     );
 
     @Description("Makes the player jump")
@@ -131,7 +131,7 @@ public interface PlayerFunctions {
     void swing_item();
 
     @Description("Returns the current forward and strafe the player is moving at")
-    Vector2f input();
+    Vec2f input();
 
     @Description("Returns the current players yaw")
     float get_yaw();
@@ -155,7 +155,7 @@ public interface PlayerFunctions {
     double get_motion_z();
 
     @Description("Returns the players current motion")
-    Vector3d get_motion();
+    Vec3d get_motion();
 
     @Description("Returns if the player is on ground")
     boolean is_on_ground();
