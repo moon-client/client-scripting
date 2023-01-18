@@ -1,7 +1,10 @@
 package com.moon.scripting.api.functions;
 
 import com.moon.scripting.api.enums.Facing;
+import com.moon.scripting.api.types.RayCastResult;
 import com.moon.scripting.api.types.Vector2f;
+import com.moon.scripting.api.types.Vector3d;
+import com.moon.scripting.api.types.Vector3i;
 import com.moon.scripting.documentation.annotation.Description;
 import com.moon.scripting.documentation.annotation.FunctionContainer;
 import com.moon.scripting.documentation.annotation.Parameter;
@@ -13,6 +16,56 @@ import org.luaj.vm2.LuaTable;
 )
 @Description("Contains functions to control the local player")
 public interface PlayerFunctions {
+    @Description("Places a block and returns if it was actually placed")
+    boolean place_block(
+        @Parameter("slot")
+        @Description("The slot number you are holding (any others will not work properly)")
+        int slot,
+        @Parameter("block_pos")
+        @Description("The position of the block to place on")
+        Vector3i blockPos,
+        @Parameter("hit_vec")
+        @Description("The hit vector")
+        Vector3d hitVec,
+        @Parameter("facing")
+        @Description("The facing placed on")
+        Facing facing
+    );
+
+    @Description("Fires a ray-cast with the given parameters and returns the ray-cast result")
+    RayCastResult ray_cast(
+        @Parameter("yaw")
+        @Description("The yaw used to fire the ray-cast")
+        float yaw,
+        @Parameter("pitch")
+        @Description("The pitch used to fire the ray-cast")
+        float pitch,
+        @Parameter("reach")
+        @Description("The reach used to fire the ray-cast")
+        float reach
+    );
+
+    @Description("Sets the players client-side yaw")
+    void set_yaw(
+        @Parameter("yaw")
+        @Description("The new yaw")
+        float yaw
+    );
+
+    @Description("Sets the players client-side pitch")
+    void set_pitch(
+        @Parameter("pitch")
+        @Description("The new pitch")
+        float pitch
+    );
+
+    @Description("Sets the players hot-bar slot")
+    void set_held_item(
+        @Parameter("slot")
+        @Description("The new slot")
+        int slot
+    );
+
     @Description("Sets the speed of the player using the move event")
     void set_speed(
         @Parameter("event")
@@ -30,25 +83,39 @@ public interface PlayerFunctions {
         double speed
     );
 
-    @Description("Sets the players client-side yaw")
-    void set_yaw(
-        @Parameter("yaw")
-        @Description("The new yaw")
-        float yaw
-    );
-
-    @Description("Sets the players client-side pitch")
-    void set_pitch(
-        @Parameter("pitch")
-        @Description("The new pitch")
-        float pitch
-    );
-
     @Description("Sets the players sprinting state")
     void set_sprinting(
         @Parameter("sprinting")
         @Description("The new sprinting state")
         boolean sprinting
+    );
+
+    @Description("Sets the players motion x")
+    void set_motion_x(
+        @Parameter("x")
+        @Description("The new motion x")
+        double x
+    );
+
+    @Description("Sets the players motion y")
+    void set_motion_y(
+        @Parameter("y")
+        @Description("The new motion y")
+        double y
+    );
+
+    @Description("Sets the players motion z")
+    void set_motion_z(
+        @Parameter("z")
+        @Description("The new motion z")
+        double z
+    );
+
+    @Description("Sets the players motion")
+    void set_motion(
+        @Parameter("motion")
+        @Description("The new motion as a vector")
+        Vector3d motion
     );
 
     @Description("Makes the player jump")
@@ -77,6 +144,18 @@ public interface PlayerFunctions {
 
     @Description("Returns the last players pitch")
     float get_prev_pitch();
+
+    @Description("Returns the players current motion x")
+    double get_motion_x();
+
+    @Description("Returns the players current motion z")
+    double get_motion_y();
+
+    @Description("Returns the players current motion y")
+    double get_motion_z();
+
+    @Description("Returns the players current motion")
+    Vector3d get_motion();
 
     @Description("Returns if the player is on ground")
     boolean is_on_ground();
@@ -158,4 +237,7 @@ public interface PlayerFunctions {
 
     @Description("Returns the players facing<br>For reference please click [here](../enums/facing.md)")
     Facing get_facing();
+
+    @Description("Returns the current minecraft ray-cast result used for all in-game actions")
+    RayCastResult get_mouse_over();
 }

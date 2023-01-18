@@ -8,7 +8,7 @@ import com.moon.scripting.documentation.annotation.Parameter;
     value = "vec2f",
     path = "types/vec2f"
 )
-@Description("A two-dimensional vector representation")
+@Description("A two-dimensional float based vector representation")
 public class Vector2f {
     public float x;
     public float y;
