@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.zip.ZipFile;
 import net.steppschuh.markdowngenerator.link.Link;
 import net.steppschuh.markdowngenerator.list.ListBuilder;
@@ -130,7 +131,7 @@ public class MarkdownApplication {
      */
     private ListBuilder buildStaticContentList(File file) {
         ListBuilder builder = new ListBuilder();
-        for (File listFile : file.listFiles()) {
+        for (File listFile : Objects.requireNonNull(file.listFiles())) {
             // Build content for folder
             if (listFile.isDirectory()) {
                 builder.append(new Link(listFile.getName(), ""));
