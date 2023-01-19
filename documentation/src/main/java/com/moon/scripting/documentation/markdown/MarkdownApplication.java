@@ -81,7 +81,10 @@ public class MarkdownApplication {
         File staticContent = new File("static");
         ListBuilder categoryList = new ListBuilder();
         categoryList.append(new Link("Introduction", "README.md"));
-        categoryList.append(buildStaticContentList(staticContent));
+        List<ListBuilder> lists = buildStaticContentList(staticContent, null);
+        for (ListBuilder list : lists) {
+            categoryList.append(list);
+        }
         for (String path : categoryMap.keySet()) {
             List<GeneratorResult> results = categoryMap.get(path);
             ListBuilder linkList = new ListBuilder();
@@ -127,10 +130,11 @@ public class MarkdownApplication {
      * Builds the summary content for the static directory
      *
      * @param file The file
+     * @param builder The builder
      * @return The static content
      */
-    private ListBuilder buildStaticContentList(File file) {
-        ListBuilder builder = new ListBuilder();
+    private List<ListBuilder> buildStaticContentList(File file, ListBuilder builder) {
+        List<ListBuilder> builderList = new ArrayList<>();
         for (File listFile : Objects.requireNonNull(file.listFiles())) {
             // Ignore readme
             if (listFile.getName().equals("README.md")) {
@@ -138,12 +142,17 @@ public class MarkdownApplication {
             }
             // Build content for folder
             if (listFile.isDirectory()) {
+                ListBuilder fileBuilder = new ListBuilder();
+                fileBuilder.append(new Link(listFile.getName(), ""));
+                buildStaticContentList(listFile, fileBuilder);
+            } else if (builder != null) {
                 builder.append(new Link(listFile.getName(), ""));
-                builder.append(buildStaticContentList(listFile));
             } else {
-                builder.append(new Link(listFile.getName(), ""));
+                ListBuilder listBuilder = new ListBuilder();
+                listBuilder.append(new Link(listFile.getName(), ""));
+                builderList.add(listBuilder);
             }
         }
-        return builder;
+        return builderList;
     }
 }
