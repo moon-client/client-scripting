@@ -118,6 +118,47 @@ public interface PlayerFunctions {
         Vec3d motion
     );
 
+    @Description("Sets the players position")
+    void set_position(
+        @Parameter("position")
+        @Description("The new position as a vector")
+        Vec3d position
+    );
+
+    @Description("Sets the players position and updates the last positions")
+    void set_position_and_update(
+        @Parameter("position")
+        @Description("The new position as a vector")
+        Vec3d position
+    );
+
+    @Description("Calculates the distance between the given coordinates and the player position")
+    double distance_to(
+        @Parameter("x")
+        @Description("The x coordinate")
+        float x,
+        @Parameter("y")
+        @Description("The y coordinate")
+        float y,
+        @Parameter("z")
+        @Description("The z coordinate")
+        float z
+    );
+
+    @Description("Calculates the distance between the given vector and the player position")
+    double distance_to(
+        @Parameter("vec")
+        @Description("The target vector")
+        Vec3d vec
+    );
+
+    @Description("Calculates the distance between the given entity and the player")
+    double distance_to_entity(
+        @Parameter("entity_id")
+        @Description("The target entity's id")
+        int entityId
+    );
+
     @Description("Makes the player jump")
     void jump();
 
@@ -131,7 +172,7 @@ public interface PlayerFunctions {
     void swing_item();
 
     @Description("Returns the current forward and strafe the player is moving at")
-    Vec2f input();
+    Vec2f get_input();
 
     @Description("Returns the current players yaw")
     float get_yaw();
@@ -156,6 +197,30 @@ public interface PlayerFunctions {
 
     @Description("Returns the players current motion")
     Vec3d get_motion();
+
+    @Description("Returns the players current position x")
+    double get_position_x();
+
+    @Description("Returns the players current position z")
+    double get_position_y();
+
+    @Description("Returns the players current position y")
+    double get_position_z();
+
+    @Description("Returns the players current position")
+    Vec3d get_position();
+
+    @Description("Returns the players previous position x")
+    double get_prev_position_x();
+
+    @Description("Returns the players previous position z")
+    double get_prev_position_y();
+
+    @Description("Returns the players previous position y")
+    double get_prev_position_z();
+
+    @Description("Returns the players previous position")
+    Vec3d get_prev_position();
 
     @Description("Returns if the player is on ground")
     boolean is_on_ground();
