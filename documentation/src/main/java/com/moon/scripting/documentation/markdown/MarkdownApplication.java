@@ -90,7 +90,7 @@ public class MarkdownApplication {
             categoryList.append(linkList);
         }
         summaryContent.append(categoryList).append("\n");
-        summaryContent.append(buildStaticContentList(staticContent)).append("\n");
+        summaryContent.append(buildStaticContentList(staticContent, staticContent.getAbsolutePath())).append("\n");
 
         File outputFile = new File(OUTPUT_PATH, "SUMMARY.md");
         FileUtils.saveFile(outputFile, summaryContent.toString());
@@ -128,9 +128,8 @@ public class MarkdownApplication {
      * @param file The file
      * @return The static content
      */
-    private ListBuilder buildStaticContentList(File file) {
+    private ListBuilder buildStaticContentList(File file, String absolutePath) {
         ListBuilder builder = new ListBuilder();
-        String absolutePath = file.getAbsolutePath();
         for (File listFile : Objects.requireNonNull(file.listFiles())) {
             // Ignore readme
             if (listFile.getName().equals("README.md")) {
@@ -141,7 +140,7 @@ public class MarkdownApplication {
             if (listFile.isDirectory()) {
                 ListBuilder fileBuilder = new ListBuilder();
                 builder.append(new Link(listFile.getName(), filePath));
-                fileBuilder.append(buildStaticContentList(listFile));
+                fileBuilder.append(buildStaticContentList(listFile, absolutePath));
                 builder.append(fileBuilder);
             } else {
                 builder.append(new Link(listFile.getName(), filePath));
