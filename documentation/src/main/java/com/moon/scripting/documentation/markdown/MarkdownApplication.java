@@ -137,7 +137,7 @@ public class MarkdownApplication {
                 continue;
             }
             // Build content for folder
-            String filePath = file.getAbsolutePath().substring(absolutePath.length());
+            String filePath = listFile.getAbsolutePath().substring(absolutePath.length());
             if (listFile.isDirectory()) {
                 ListBuilder fileBuilder = new ListBuilder();
                 builder.append(new Link(listFile.getName(), filePath));
