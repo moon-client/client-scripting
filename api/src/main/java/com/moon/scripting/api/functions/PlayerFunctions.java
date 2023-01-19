@@ -317,7 +317,7 @@ public interface PlayerFunctions {
         int id
     );
 
-    @Description("Returns the potion effect if active otherwise returns nil")
+    @Description("Returns a specific potion effect if active otherwise returns nil")
     Potion get_effect(
         @Parameter("id")
         @Description("The id of the potion")
