@@ -80,7 +80,7 @@ public class MarkdownApplication {
 
         File staticContent = new File("static");
         ListBuilder categoryList = new ListBuilder();
-        categoryList.append(new Link("Introduction", "README.md"));
+        categoryList.append(new Link("Introduction", "README.md")).append("\n");
         categoryList.append(buildStaticContentList(staticContent));
         for (String path : categoryMap.keySet()) {
             List<GeneratorResult> results = categoryMap.get(path);
@@ -132,12 +132,17 @@ public class MarkdownApplication {
     private ListBuilder buildStaticContentList(File file) {
         ListBuilder builder = new ListBuilder();
         for (File listFile : Objects.requireNonNull(file.listFiles())) {
+            // Ignore readme
+            if (listFile.getName().equals("README.md")) {
+                continue;
+            }
             // Build content for folder
             if (listFile.isDirectory()) {
                 builder.append(new Link(listFile.getName(), ""));
                 builder.append(buildStaticContentList(listFile));
+            } else {
+                builder.append(new Link(listFile.getName(), ""));
             }
-            builder.append(new Link(listFile.getName(), ""));
         }
         return builder;
     }
