@@ -307,7 +307,7 @@ public interface PlayerFunctions {
     @Description("Returns the current minecraft ray-cast result used for all in-game actions")
     RayCastResult get_mouse_over();
 
-    @Description("Returns the active potion effects")
+    @Description("Returns all active potion effects")
     Potion[] get_active_effects();
 
     @Description("Returns if the player has the given potion effect")
