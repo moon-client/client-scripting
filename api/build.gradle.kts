@@ -25,6 +25,8 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
     implementation(project(":documentation"))
     implementation("org.luaj:luaj-jse:3.0.1")
+    compileOnly("org.projectlombok:lombok:1.18.24")
+    annotationProcessor("org.projectlombok:lombok:1.18.24")
 }
 
 tasks.getByName<Test>("test") {

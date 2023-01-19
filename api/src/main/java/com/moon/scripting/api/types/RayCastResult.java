@@ -4,7 +4,9 @@ import com.moon.scripting.api.enums.Facing;
 import com.moon.scripting.api.enums.HitType;
 import com.moon.scripting.documentation.annotation.DataClassContainer;
 import com.moon.scripting.documentation.annotation.Description;
+import lombok.ToString;
 
+@ToString
 @DataClassContainer(
     value = "raycastresult",
     path = "types/raycastresult"

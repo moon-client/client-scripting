@@ -2,7 +2,9 @@ package com.moon.scripting.api.types;
 
 import com.moon.scripting.documentation.annotation.DataClassContainer;
 import com.moon.scripting.documentation.annotation.Description;
+import lombok.ToString;
 
+@ToString
 @DataClassContainer(
     value = "vec3d",
     path = "types/vec3d"
