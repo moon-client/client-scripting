@@ -79,8 +79,7 @@ public class MarkdownApplication {
 
         File staticContent = new File("static");
         ListBuilder categoryList = new ListBuilder();
-        summaryContent.append(new Link("Introduction", "README.md")).append("\n");
-        summaryContent.append(buildStaticContentList(staticContent)).append("\n");
+        categoryList.append(new Link("Introduction", "README.md")).append("\n");
         for (String path : categoryMap.keySet()) {
             List<GeneratorResult> results = categoryMap.get(path);
             ListBuilder linkList = new ListBuilder();
@@ -91,6 +90,7 @@ public class MarkdownApplication {
             categoryList.append(linkList);
         }
         summaryContent.append(categoryList);
+        summaryContent.append(buildStaticContentList(staticContent)).append("\n");
 
         File outputFile = new File(OUTPUT_PATH, "SUMMARY.md");
         FileUtils.saveFile(outputFile, summaryContent.toString());
