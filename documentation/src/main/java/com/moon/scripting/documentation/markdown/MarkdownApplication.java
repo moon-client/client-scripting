@@ -135,7 +135,7 @@ public class MarkdownApplication {
             // Build content for folder
             if (listFile.isDirectory()) {
                 builder.append(new Link(listFile.getName(), ""));
-                builder.append(buildStaticContentList(file));
+                builder.append(buildStaticContentList(listFile));
             }
             builder.append(new Link(listFile.getName(), ""));
         }
