@@ -5,9 +5,9 @@ This is a full tutorial on how to create and work with vectors!
 
 ## Create a Vector
 
-First thing you need to know is that there are multiple types of vectors, you can find them under the `types`
+An important thing you need to know is that there are multiple types of vectors, you can find them under the `types`
 category.<br>
-After you selected the vector you want to use you have multiple options, either create an empty one with the values 0 on
+After you selected the desired vector you have multiple options, either create an empty one with the values 0 on
 all dimensions or predefining what values you want to have on each dimension.
 
 ### Code Example
