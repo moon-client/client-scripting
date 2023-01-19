@@ -59,9 +59,9 @@ public class MarkdownApplication {
         // Delete output path if existing
         if (OUTPUT_PATH.exists()) {
             try {
-                Files.delete(OUTPUT_PATH.toPath());
+                org.apache.commons.io.FileUtils.deleteDirectory(OUTPUT_PATH);
             } catch (IOException e) {
-                e.printStackTrace();
+                LOGGER.error(e);
             }
         }
         //noinspection ResultOfMethodCallIgnored

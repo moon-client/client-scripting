@@ -24,6 +24,7 @@ dependencies {
     implementation("org.tinylog:tinylog-api:2.5.0")
     implementation("org.tinylog:tinylog-impl:2.5.0")
     implementation(files("lib/markdown.jar"))
+    implementation("commons-io:commons-io:2.11.0")
 }
 
 application {
