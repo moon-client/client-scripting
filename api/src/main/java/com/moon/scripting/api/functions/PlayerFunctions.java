@@ -1,6 +1,7 @@
 package com.moon.scripting.api.functions;
 
 import com.moon.scripting.api.enums.Facing;
+import com.moon.scripting.api.types.Potion;
 import com.moon.scripting.api.types.RayCastResult;
 import com.moon.scripting.api.types.Vec2f;
 import com.moon.scripting.api.types.Vec3d;
@@ -305,4 +306,7 @@ public interface PlayerFunctions {
 
     @Description("Returns the current minecraft ray-cast result used for all in-game actions")
     RayCastResult get_mouse_over();
+
+    @Description("Returns the active potion effects")
+    Potion[] get_active_effects();
 }
