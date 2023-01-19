@@ -77,8 +77,10 @@ public class MarkdownApplication {
             }
         }
 
+        File staticContent = new File("static");
         ListBuilder categoryList = new ListBuilder();
         categoryList.append(new Link("Introduction", "README.md"));
+        categoryList.append(buildStaticContentList(staticContent));
         for (String path : categoryMap.keySet()) {
             List<GeneratorResult> results = categoryMap.get(path);
             ListBuilder linkList = new ListBuilder();
@@ -94,7 +96,7 @@ public class MarkdownApplication {
         FileUtils.saveFile(outputFile, summaryContent.toString());
 
         try {
-            FileUtils.copyDirectory(new File("static").toPath(), OUTPUT_PATH.toPath());
+            FileUtils.copyDirectory(staticContent.toPath(), OUTPUT_PATH.toPath());
         } catch (IOException e) {
             LOGGER.error("Failed to copy static input into output directory");
             e.printStackTrace();
@@ -118,5 +120,24 @@ public class MarkdownApplication {
             System.exit(-2);
         }
         return null;
+    }
+
+    /**
+     * Builds the summary content for the static directory
+     *
+     * @param file The file
+     * @return The static content
+     */
+    private ListBuilder buildStaticContentList(File file) {
+        ListBuilder builder = new ListBuilder();
+        for (File listFile : file.listFiles()) {
+            // Build content for folder
+            if (listFile.isDirectory()) {
+                builder.append(new Link(listFile.getName(), ""));
+                builder.append(buildStaticContentList(file));
+            }
+            builder.append(new Link(listFile.getName(), ""));
+        }
+        return builder;
     }
 }
