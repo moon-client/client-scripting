@@ -131,13 +131,17 @@ public class MarkdownApplication {
      */
     private ListBuilder buildStaticContentList(File file) {
         ListBuilder builder = new ListBuilder();
-        for (File listFile : Objects.requireNonNull(file.listFiles())) {
-            // Build content for folder
-            if (listFile.isDirectory()) {
+        try {
+            for (File listFile : Objects.requireNonNull(file.listFiles())) {
+                // Build content for folder
+                if (listFile.isDirectory()) {
+                    builder.append(new Link(listFile.getName(), ""));
+                    builder.append(buildStaticContentList(file));
+                }
                 builder.append(new Link(listFile.getName(), ""));
-                builder.append(buildStaticContentList(file));
             }
-            builder.append(new Link(listFile.getName(), ""));
+        } catch (Exception ex) {
+            Logger.error(ex);
         }
         return builder;
     }
