@@ -89,7 +89,7 @@ public class MarkdownApplication {
             categoryList.append(new Link(path, path + ".md"));
             categoryList.append(linkList);
         }
-        summaryContent.append(categoryList);
+        summaryContent.append(categoryList).append("\n");
         summaryContent.append(buildStaticContentList(staticContent)).append("\n");
 
         File outputFile = new File(OUTPUT_PATH, "SUMMARY.md");
