@@ -6,6 +6,7 @@ import com.moon.scripting.documentation.markdown.processor.ClassProcessor;
 import com.moon.scripting.documentation.markdown.util.FileUtils;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -57,7 +58,11 @@ public class MarkdownApplication {
     private void processNodes(List<ClassNode> nodes) {
         // Delete output path if existing
         if (OUTPUT_PATH.exists()) {
-            OUTPUT_PATH.delete();
+            try {
+                Files.delete(OUTPUT_PATH.toPath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         //noinspection ResultOfMethodCallIgnored
         OUTPUT_PATH.mkdirs();
