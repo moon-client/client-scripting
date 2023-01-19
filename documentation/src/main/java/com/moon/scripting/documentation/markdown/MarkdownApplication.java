@@ -148,7 +148,7 @@ public class MarkdownApplication {
                 fileBuilder.append(buildStaticContentList(listFile, absolutePath));
                 builder.append(fileBuilder);
             } else {
-                builder.append(new Link(listFile.getName().substring(0, listFile.getName().length() - 2), filePath));
+                builder.append(new Link(listFile.getName().substring(0, listFile.getName().length() - 3), filePath));
             }
         }
         return builder;
