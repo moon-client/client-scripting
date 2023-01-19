@@ -11,6 +11,8 @@ import com.moon.scripting.documentation.annotation.Description;
 public class Potion {
     @Description("The potion id")
     public int id;
+    @Description("The potion name (locale)")
+    public String name;
     @Description("The duration of the potion effect")
     public int duration;
     @Description("The strength of the potion effect")
