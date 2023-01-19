@@ -4,22 +4,20 @@ import com.moon.scripting.documentation.markdown.file.ClassFileLoader;
 import com.moon.scripting.documentation.markdown.generator.GeneratorResult;
 import com.moon.scripting.documentation.markdown.processor.ClassProcessor;
 import com.moon.scripting.documentation.markdown.util.FileUtils;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.zip.ZipFile;
 import net.steppschuh.markdowngenerator.link.Link;
 import net.steppschuh.markdowngenerator.list.ListBuilder;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 import org.objectweb.asm.tree.ClassNode;
 import org.tinylog.Logger;
 import org.tinylog.TaggedLogger;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.zip.ZipFile;
 
 /**
  * The moon scripting documentation generator
@@ -95,16 +93,11 @@ public class MarkdownApplication {
         File outputFile = new File(OUTPUT_PATH, "SUMMARY.md");
         FileUtils.saveFile(outputFile, summaryContent.toString());
 
-        File readmeFile = new File(OUTPUT_PATH, "README.md");
         try {
-            InputStream readmeStream = getClass().getResourceAsStream("/README.md");
-            if (readmeStream == null) {
-                LOGGER.error("Could not find readme file in classpath, does it exist?");
-                return;
-            }
-            FileUtils.saveFile(readmeFile, new String(readmeStream.readAllBytes()));
+            FileUtils.copyDirectory(new File("static").toPath(), OUTPUT_PATH.toPath());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            LOGGER.error("Failed to copy static input into output directory");
+            e.printStackTrace();
         }
     }
 
