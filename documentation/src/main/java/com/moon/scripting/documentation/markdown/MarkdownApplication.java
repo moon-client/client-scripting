@@ -145,6 +145,7 @@ public class MarkdownApplication {
                 ListBuilder fileBuilder = new ListBuilder();
                 fileBuilder.append(new Link(listFile.getName(), ""));
                 buildStaticContentList(listFile, fileBuilder);
+                builderList.add(fileBuilder);
             } else if (builder != null) {
                 builder.append(new Link(listFile.getName(), ""));
             } else {
