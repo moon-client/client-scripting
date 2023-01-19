@@ -14,4 +14,7 @@ public interface WorldFunctions {
 
     @Description("Returns an array of all loaded player ids")
     int[] players();
+
+    @Description("Returns the biome of the current world")
+    String biome();
 }
