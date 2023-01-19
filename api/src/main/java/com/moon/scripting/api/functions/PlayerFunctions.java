@@ -5,7 +5,6 @@ import com.moon.scripting.api.types.Potion;
 import com.moon.scripting.api.types.RayCastResult;
 import com.moon.scripting.api.types.Vec2f;
 import com.moon.scripting.api.types.Vec3d;
-import com.moon.scripting.api.types.Vec3f;
 import com.moon.scripting.api.types.Vec3i;
 import com.moon.scripting.documentation.annotation.Description;
 import com.moon.scripting.documentation.annotation.FunctionContainer;
