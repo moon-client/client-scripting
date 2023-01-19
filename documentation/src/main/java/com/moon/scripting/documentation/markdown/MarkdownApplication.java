@@ -6,7 +6,6 @@ import com.moon.scripting.documentation.markdown.processor.ClassProcessor;
 import com.moon.scripting.documentation.markdown.util.FileUtils;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -81,10 +80,7 @@ public class MarkdownApplication {
         File staticContent = new File("static");
         ListBuilder categoryList = new ListBuilder();
         categoryList.append(new Link("Introduction", "README.md"));
-        List<ListBuilder> lists = buildStaticContentList(staticContent, null);
-        for (ListBuilder list : lists) {
-            categoryList.append(list);
-        }
+        categoryList.append(buildStaticContentList(staticContent));
         for (String path : categoryMap.keySet()) {
             List<GeneratorResult> results = categoryMap.get(path);
             ListBuilder linkList = new ListBuilder();
@@ -130,11 +126,10 @@ public class MarkdownApplication {
      * Builds the summary content for the static directory
      *
      * @param file The file
-     * @param builder The builder
      * @return The static content
      */
-    private List<ListBuilder> buildStaticContentList(File file, ListBuilder builder) {
-        List<ListBuilder> builderList = new ArrayList<>();
+    private String buildStaticContentList(File file) {
+        ListBuilder builder = new ListBuilder();
         for (File listFile : Objects.requireNonNull(file.listFiles())) {
             // Ignore readme
             if (listFile.getName().equals("README.md")) {
@@ -143,17 +138,13 @@ public class MarkdownApplication {
             // Build content for folder
             if (listFile.isDirectory()) {
                 ListBuilder fileBuilder = new ListBuilder();
-                fileBuilder.append(new Link(listFile.getName(), ""));
-                buildStaticContentList(listFile, fileBuilder);
-                builderList.add(fileBuilder);
-            } else if (builder != null) {
                 builder.append(new Link(listFile.getName(), ""));
+                fileBuilder.append(buildStaticContentList(listFile));
+                builder.append(fileBuilder);
             } else {
-                ListBuilder listBuilder = new ListBuilder();
-                listBuilder.append(new Link(listFile.getName(), ""));
-                builderList.add(listBuilder);
+                builder.append(new Link(listFile.getName(), ""));
             }
         }
-        return builderList;
+        return builder.toString();
     }
 }
