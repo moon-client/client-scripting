@@ -309,4 +309,18 @@ public interface PlayerFunctions {
 
     @Description("Returns the active potion effects")
     Potion[] get_active_effects();
+
+    @Description("Returns if the player has the given potion effect")
+    boolean has_effect(
+        @Parameter("id")
+        @Description("The id of the potion")
+        int id
+    );
+
+    @Description("Returns the potion effect if active otherwise returns nil")
+    Potion get_effect(
+        @Parameter("id")
+        @Description("The id of the potion")
+        int id
+    );
 }
