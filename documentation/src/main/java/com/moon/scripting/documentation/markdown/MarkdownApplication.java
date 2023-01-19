@@ -80,7 +80,7 @@ public class MarkdownApplication {
 
         File staticContent = new File("static");
         ListBuilder categoryList = new ListBuilder();
-        categoryList.append(new Link("Introduction", "README.md")).append("\n");
+        categoryList.append(new Link("Introduction", "README.md"));
         categoryList.append(buildStaticContentList(staticContent));
         for (String path : categoryMap.keySet()) {
             List<GeneratorResult> results = categoryMap.get(path);
