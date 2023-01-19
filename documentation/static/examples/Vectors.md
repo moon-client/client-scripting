@@ -7,8 +7,8 @@ This is a full tutorial on how to create and work with vectors!
 
 An important thing you need to know is that there are multiple types of vectors, you can find them under the `types`
 category.<br>
-After you selected the desired vector you have multiple options, either create an empty one with the values 0 on
-all dimensions or predefining what values you want to have on each dimension.
+After you selected the desired vector you have multiple options, either create an empty one with default values or
+predefining what values you want to have on each dimension.
 
 ### Code Example
 
