@@ -130,19 +130,21 @@ public class MarkdownApplication {
      */
     private ListBuilder buildStaticContentList(File file) {
         ListBuilder builder = new ListBuilder();
+        String absolutePath = file.getAbsolutePath();
         for (File listFile : Objects.requireNonNull(file.listFiles())) {
             // Ignore readme
             if (listFile.getName().equals("README.md")) {
                 continue;
             }
             // Build content for folder
+            String filePath = file.getAbsolutePath().substring(absolutePath.length());
             if (listFile.isDirectory()) {
                 ListBuilder fileBuilder = new ListBuilder();
-                builder.append(new Link(listFile.getName(), ""));
+                builder.append(new Link(listFile.getName(), filePath));
                 fileBuilder.append(buildStaticContentList(listFile));
                 builder.append(fileBuilder);
             } else {
-                builder.append(new Link(listFile.getName(), ""));
+                builder.append(new Link(listFile.getName(), filePath));
             }
         }
         return builder;
