@@ -136,10 +136,10 @@ public class MarkdownApplication {
                 continue;
             }
             // Build content for folder
-            String filePath = listFile.getAbsolutePath().substring(absolutePath.length());
+            String filePath = listFile.getAbsolutePath().substring(absolutePath.length() + 1);
             if (listFile.isDirectory()) {
                 ListBuilder fileBuilder = new ListBuilder();
-                builder.append(new Link(listFile.getName(), filePath));
+                builder.append(new Link(listFile.getName(), filePath + ".md"));
                 fileBuilder.append(buildStaticContentList(listFile, absolutePath));
                 builder.append(fileBuilder);
             } else {
