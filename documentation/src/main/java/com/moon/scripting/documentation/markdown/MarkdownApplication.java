@@ -128,7 +128,7 @@ public class MarkdownApplication {
      * @param file The file
      * @return The static content
      */
-    private String buildStaticContentList(File file) {
+    private ListBuilder buildStaticContentList(File file) {
         ListBuilder builder = new ListBuilder();
         for (File listFile : Objects.requireNonNull(file.listFiles())) {
             // Ignore readme
@@ -145,6 +145,6 @@ public class MarkdownApplication {
                 builder.append(new Link(listFile.getName(), ""));
             }
         }
-        return builder.toString();
+        return builder;
     }
 }
