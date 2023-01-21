@@ -36,13 +36,13 @@ public interface InventoryFunctions {
 
     @Description("Provides full access to window clicks, used to move around items in inventories")
     void window_click(
-        @Parameter("slot_id")
+        @Parameter("window_id")
         @Description("The window id")
         int windowId,
         @Parameter("slot_id")
         @Description("The slot id")
         int slot,
-        @Parameter("slot_id")
+        @Parameter("mouse_button_clicked")
         @Description("The mouse button clicked")
         int mouseButtonClicked,
         @Parameter("mode")
