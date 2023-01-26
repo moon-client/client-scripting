@@ -14,7 +14,10 @@ public interface InventoryFunctions {
     void drop(
         @Parameter("slot_id")
         @Description("The slot id to drop")
-        int slotId
+        int slotId,
+        @Parameter("stack")
+        @Description("Whether to drop the entire stack or a singular item")
+        boolean stack
     );
 
     @Description("Shifts a slot id in the inventory")
