@@ -4,11 +4,11 @@ import com.moon.scripting.documentation.annotation.Description;
 import com.moon.scripting.documentation.annotation.EnumContainer;
 
 @EnumContainer(
-    value = "action",
-    path = "enums/action"
+    value = "entity_action",
+    path = "enums/entity_action"
 )
 @Description("The different entity actions which can be sent in a 0x0B packet")
-public enum Action {
+public enum EntityAction {
     @Description("Starts sneaking on the server")
     START_SNEAKING,
     @Description("Stops sneaking on the server")
