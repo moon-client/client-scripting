@@ -133,6 +133,26 @@ public interface PlayerFunctions {
         Vec3d position
     );
 
+    @Description("Sends a packet to the server")
+    void send_packet(
+        @Parameter("id")
+        @Description("The packet id")
+        int id,
+        @Parameter("arguments")
+        @Description("The packet arguments (vararg)")
+        Object... args
+    );
+
+    @Description("Sends a packet to the server without causing any other modules to process them")
+    void send_packet_no_event(
+        @Parameter("id")
+        @Description("The packet id")
+        int id,
+        @Parameter("arguments")
+        @Description("The packet arguments (vararg)")
+        Object... args
+    );
+
     @Description("Calculates the distance between the given coordinates and the player position")
     double distance_to(
         @Parameter("x")
