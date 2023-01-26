@@ -140,7 +140,7 @@ public interface PlayerFunctions {
         int id,
         @Parameter("arguments")
         @Description("The packet arguments (vararg)")
-        Object... args
+        Object[] args
     );
 
     @Description("Sends a packet to the server without causing any other modules to process them")
@@ -150,7 +150,7 @@ public interface PlayerFunctions {
         int id,
         @Parameter("arguments")
         @Description("The packet arguments (vararg)")
-        Object... args
+        Object[] args
     );
 
     @Description("Calculates the distance between the given coordinates and the player position")
