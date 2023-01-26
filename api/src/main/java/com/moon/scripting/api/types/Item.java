@@ -12,17 +12,17 @@ import lombok.ToString;
 @Description("Contains information about an item stack")
 public class Item {
     @Description("The item name (locale)")
-    private String name;
+    public String name;
     @Description("The display name of the item")
-    private String display_name;
+    public String display_name;
     @Description("The maximum stack size (usually 64)")
-    private int max_stack_size;
+    public int max_stack_size;
     @Description("The current stack size")
-    private int stack_size;
+    public int stack_size;
     @Description("The max item damage before it breaks")
-    private int max_damage;
+    public int max_damage;
     @Description("The current item damage")
-    private int damage;
+    public int damage;
     @Description("The enchantments applied on the item")
-    private Enchantment[] enchantments;
+    public Enchantment[] enchantments;
 }
