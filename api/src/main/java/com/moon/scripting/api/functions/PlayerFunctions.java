@@ -139,7 +139,7 @@ public interface PlayerFunctions {
         @Description("The packet id")
         int id,
         @Parameter("arguments")
-        @Description("The packet arguments (vararg)")
+        @Description("The packet arguments")
         Object[] args
     );
 
@@ -149,7 +149,7 @@ public interface PlayerFunctions {
         @Description("The packet id")
         int id,
         @Parameter("arguments")
-        @Description("The packet arguments (vararg)")
+        @Description("The packet arguments")
         Object[] args
     );
 
