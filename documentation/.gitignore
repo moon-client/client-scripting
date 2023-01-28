@@ -1,7 +1,7 @@
 /*
 
 !src/
-!lib/
-!static/
+!../generator/lib/
+!../generator/static/
 !build.gradle.kts
 !.gitignore

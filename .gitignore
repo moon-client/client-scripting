@@ -1,6 +1,7 @@
 /*
 
 !gradle/
+!generator/
 !documentation/
 !api/
 !book/

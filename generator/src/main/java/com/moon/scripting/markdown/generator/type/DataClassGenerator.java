@@ -1,12 +1,12 @@
-package com.moon.scripting.documentation.markdown.generator.type;
+package com.moon.scripting.markdown.generator.type;
 
 import com.moon.scripting.documentation.annotation.DataClassContainer;
 import com.moon.scripting.documentation.annotation.Description;
-import com.moon.scripting.documentation.annotation.EnumContainer;
 import com.moon.scripting.documentation.annotation.Parameter;
 import com.moon.scripting.documentation.markdown.generator.Generator;
 import com.moon.scripting.documentation.markdown.generator.GeneratorResult;
 import com.moon.scripting.documentation.markdown.processor.AnnotationMappings;
+import java.util.List;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.Text;
 import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
@@ -16,15 +16,14 @@ import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
 import org.objectweb.asm.tree.MethodNode;
-import java.util.List;
 
 public class DataClassGenerator extends Generator {
     @Override
     public GeneratorResult generate(ClassNode node) {
         String path = "";
         StringBuilder generated = new StringBuilder();
-        AnnotationNode dataNode = findAnnotation(node, AnnotationMappings.getMappingsFor(DataClassContainer.class));
-        AnnotationNode descNode = findAnnotation(node, AnnotationMappings.getMappingsFor(Description.class));
+        AnnotationNode dataNode = findAnnotation(node, AnnotationMappings.mappingsFor(DataClassContainer.class));
+        AnnotationNode descNode = findAnnotation(node, AnnotationMappings.mappingsFor(Description.class));
         // Append class name if present
         String name = "No name found";
         if (dataNode != null) {
@@ -45,7 +44,7 @@ public class DataClassGenerator extends Generator {
             Table.Builder values = new Table.Builder().addRow("field", "description");
             for (FieldNode field : node.fields) {
                 AnnotationNode paramDescNode = findAnnotation(field,
-                    AnnotationMappings.getMappingsFor(Description.class));
+                    AnnotationMappings.mappingsFor(Description.class));
                 String description = "No description";
                 // Load enum value description
                 if (paramDescNode != null) {
@@ -68,7 +67,7 @@ public class DataClassGenerator extends Generator {
 
                 generated.append(new Heading(method.name + "()", 3)).append("\n");
                 AnnotationNode methodDescNode = findAnnotation(method,
-                    AnnotationMappings.getMappingsFor(Description.class));
+                    AnnotationMappings.mappingsFor(Description.class));
                 // Append method description if present
                 if (methodDescNode != null) {
                     String description = (String) findAnnotationValue(methodDescNode, "value");
@@ -87,9 +86,9 @@ public class DataClassGenerator extends Generator {
                             Type parameter = parameters[i];
                             List<AnnotationNode> annotations = parameterAnnotations[i];
                             AnnotationNode paramNode = findAnnotation(annotations,
-                                AnnotationMappings.getMappingsFor(Parameter.class));
+                                AnnotationMappings.mappingsFor(Parameter.class));
                             AnnotationNode paramDescNode = findAnnotation(annotations,
-                                AnnotationMappings.getMappingsFor(Description.class));
+                                AnnotationMappings.mappingsFor(Description.class));
                             String description = "No description";
                             String paramName = "ERROR";
                             // Load parameter name

@@ -1,21 +1,19 @@
-package com.moon.scripting.documentation.markdown.processor;
+package com.moon.scripting.markdown.processor;
 
 import com.moon.scripting.documentation.markdown.generator.Generator;
 import com.moon.scripting.documentation.markdown.generator.GeneratorFactory;
 import com.moon.scripting.documentation.markdown.generator.GeneratorResult;
 import com.moon.scripting.documentation.markdown.generator.GeneratorType;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.tinylog.Logger;
 import org.tinylog.TaggedLogger;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
 
 /**
  * Processes given classes by determining their {@link GeneratorType} which is then used to create a documentation file

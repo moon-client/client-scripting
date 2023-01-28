@@ -1,4 +1,4 @@
-package com.moon.scripting.documentation.markdown.util;
+package com.moon.scripting.markdown.util;
 
 import java.io.File;
 import java.io.IOException;

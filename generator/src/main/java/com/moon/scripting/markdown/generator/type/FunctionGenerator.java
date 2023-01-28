@@ -1,4 +1,4 @@
-package com.moon.scripting.documentation.markdown.generator.type;
+package com.moon.scripting.markdown.generator.type;
 
 import com.moon.scripting.documentation.annotation.Description;
 import com.moon.scripting.documentation.annotation.ExampleCode;
@@ -7,6 +7,8 @@ import com.moon.scripting.documentation.annotation.Parameter;
 import com.moon.scripting.documentation.markdown.generator.Generator;
 import com.moon.scripting.documentation.markdown.generator.GeneratorResult;
 import com.moon.scripting.documentation.markdown.processor.AnnotationMappings;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import net.steppschuh.markdowngenerator.table.Table;
@@ -18,8 +20,6 @@ import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.MethodNode;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * The generator for {@link FunctionContainer}s
@@ -32,8 +32,8 @@ public class FunctionGenerator extends Generator {
     public GeneratorResult generate(ClassNode node) {
         String path = "";
         StringBuilder generated = new StringBuilder();
-        AnnotationNode funcNode = findAnnotation(node, AnnotationMappings.getMappingsFor(FunctionContainer.class));
-        AnnotationNode descNode = findAnnotation(node, AnnotationMappings.getMappingsFor(Description.class));
+        AnnotationNode funcNode = findAnnotation(node, AnnotationMappings.mappingsFor(FunctionContainer.class));
+        AnnotationNode descNode = findAnnotation(node, AnnotationMappings.mappingsFor(Description.class));
         // Append class name if present
         String name = "No name found";
         if (funcNode != null) {
@@ -52,10 +52,10 @@ public class FunctionGenerator extends Generator {
                 continue;
             }
 
-            AnnotationNode exampleNode = findAnnotation(method, AnnotationMappings.getMappingsFor(ExampleCode.class));
+            AnnotationNode exampleNode = findAnnotation(method, AnnotationMappings.mappingsFor(ExampleCode.class));
             generated.append(new Heading(method.name + "()", 2)).append("\n");
             AnnotationNode methodDescNode = findAnnotation(method,
-                AnnotationMappings.getMappingsFor(Description.class));
+                AnnotationMappings.mappingsFor(Description.class));
             // Append method description if present
             if (methodDescNode != null) {
                 String description = (String) findAnnotationValue(methodDescNode, "value");
@@ -80,9 +80,9 @@ public class FunctionGenerator extends Generator {
                         Type parameter = parameters[i];
                         List<AnnotationNode> annotations = parameterAnnotations[i];
                         AnnotationNode paramNode = findAnnotation(annotations,
-                            AnnotationMappings.getMappingsFor(Parameter.class));
+                            AnnotationMappings.mappingsFor(Parameter.class));
                         AnnotationNode paramDescNode = findAnnotation(annotations,
-                            AnnotationMappings.getMappingsFor(Description.class));
+                            AnnotationMappings.mappingsFor(Description.class));
                         String description = "No description";
                         String paramName = "ERROR";
                         // Load parameter name

@@ -1,4 +1,4 @@
-package com.moon.scripting.documentation.markdown;
+package com.moon.scripting.markdown;
 
 /**
  * Entrypoint for the {@link MarkdownApplication}

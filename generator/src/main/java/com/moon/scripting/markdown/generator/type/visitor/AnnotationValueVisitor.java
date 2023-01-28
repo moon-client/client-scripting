@@ -1,10 +1,10 @@
-package com.moon.scripting.documentation.markdown.generator.type.visitor;
+package com.moon.scripting.markdown.generator.type.visitor;
 
+import java.util.HashMap;
+import java.util.Map;
 import lombok.Getter;
 import org.objectweb.asm.AnnotationVisitor;
 import org.objectweb.asm.Opcodes;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Reads and saves the values of an annotation

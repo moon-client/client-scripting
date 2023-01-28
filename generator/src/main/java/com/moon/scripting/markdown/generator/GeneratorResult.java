@@ -1,4 +1,4 @@
-package com.moon.scripting.documentation.markdown.generator;
+package com.moon.scripting.markdown.generator;
 
 import lombok.Builder;
 import lombok.Getter;

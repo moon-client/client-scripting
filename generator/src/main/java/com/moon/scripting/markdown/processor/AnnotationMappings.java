@@ -1,4 +1,4 @@
-package com.moon.scripting.documentation.markdown.processor;
+package com.moon.scripting.markdown.processor;
 
 import com.moon.scripting.documentation.annotation.DataClassContainer;
 import com.moon.scripting.documentation.annotation.Description;
@@ -35,7 +35,7 @@ public class AnnotationMappings {
      * @return The annotation desc or null
      * @since 1.0.0
      */
-    public static String getMappingsFor(Class<? extends Annotation> annotation) {
+    public static String mappingsFor(Class<? extends Annotation> annotation) {
         return ANNOTATION_MAP.get(annotation);
     }
 }

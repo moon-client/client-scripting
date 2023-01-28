@@ -1,18 +1,17 @@
-package com.moon.scripting.documentation.markdown.file;
-
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.tree.ClassNode;
-import org.tinylog.Logger;
-import org.tinylog.TaggedLogger;
+package com.moon.scripting.markdown.file;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipFile;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.tree.ClassNode;
+import org.tinylog.Logger;
+import org.tinylog.TaggedLogger;
 
 /**
- * Loads {@link org.objectweb.asm.tree.ClassNode}s from a given zip file
+ * Loads {@link ClassNode}s from a given zip file
  *
  * @author Lennox
  * @since 1.0.0

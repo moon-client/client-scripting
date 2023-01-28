@@ -1,4 +1,4 @@
-package com.moon.scripting.documentation.markdown;
+package com.moon.scripting.markdown;
 
 import com.moon.scripting.documentation.markdown.file.ClassFileLoader;
 import com.moon.scripting.documentation.markdown.generator.GeneratorResult;
@@ -6,7 +6,6 @@ import com.moon.scripting.documentation.markdown.processor.ClassProcessor;
 import com.moon.scripting.documentation.markdown.util.FileUtils;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

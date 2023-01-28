@@ -1,4 +1,4 @@
-package com.moon.scripting.documentation.markdown.generator;
+package com.moon.scripting.markdown.generator;
 
 import com.moon.scripting.documentation.markdown.generator.type.DataClassGenerator;
 import com.moon.scripting.documentation.markdown.generator.type.EnumGenerator;

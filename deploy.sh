@@ -2,13 +2,13 @@ git pull
 
 # Build and move api jar
 ./gradlew :api:jar
-cp ./api/build/libs/api-1.0.14-SNAPSHOT.jar ./documentation/input.jar
+cp ./api/build/libs/api-1.0.14-SNAPSHOT.jar ./generator/input.jar
 
 # Generate documentation and move to book src
-./gradlew :documentation:run
+./gradlew :generator:run
 rm -r ./book/src
 mkdir ./book/src
-cp -a ./documentation/generated/. ./book/src
+cp -a ./generator/generated/. ./book/src
 
 # Generate book.
 # shellcheck disable=SC2164

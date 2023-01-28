@@ -1,4 +1,4 @@
-package com.moon.scripting.documentation.markdown.generator.type;
+package com.moon.scripting.markdown.generator.type;
 
 import com.moon.scripting.documentation.annotation.Description;
 import com.moon.scripting.documentation.annotation.FunctionContainer;
@@ -10,7 +10,6 @@ import com.moon.scripting.documentation.markdown.processor.AnnotationMappings;
 import java.util.List;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.Text;
-import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.AnnotationNode;
@@ -28,8 +27,8 @@ public class TableInfoGenerator extends Generator {
     public GeneratorResult generate(ClassNode node) {
         String path = "";
         StringBuilder generated = new StringBuilder();
-        AnnotationNode tableNode = findAnnotation(node, AnnotationMappings.getMappingsFor(TableInfoContainer.class));
-        AnnotationNode descNode = findAnnotation(node, AnnotationMappings.getMappingsFor(Description.class));
+        AnnotationNode tableNode = findAnnotation(node, AnnotationMappings.mappingsFor(TableInfoContainer.class));
+        AnnotationNode descNode = findAnnotation(node, AnnotationMappings.mappingsFor(Description.class));
         // Append class name if present
         String name = "No name found";
         if (tableNode != null) {
@@ -50,7 +49,7 @@ public class TableInfoGenerator extends Generator {
 
             generated.append(new Heading(method.name + "()", 2)).append("\n");
             AnnotationNode methodDescNode = findAnnotation(method,
-                AnnotationMappings.getMappingsFor(Description.class));
+                AnnotationMappings.mappingsFor(Description.class));
             // Append method description if present
             if (methodDescNode != null) {
                 String description = (String) findAnnotationValue(methodDescNode, "value");
@@ -69,9 +68,9 @@ public class TableInfoGenerator extends Generator {
                         Type parameter = parameters[i];
                         List<AnnotationNode> annotations = parameterAnnotations[i];
                         AnnotationNode paramNode = findAnnotation(annotations,
-                            AnnotationMappings.getMappingsFor(Parameter.class));
+                            AnnotationMappings.mappingsFor(Parameter.class));
                         AnnotationNode paramDescNode = findAnnotation(annotations,
-                            AnnotationMappings.getMappingsFor(Description.class));
+                            AnnotationMappings.mappingsFor(Description.class));
                         String description = "No description";
                         String paramName = "ERROR";
                         // Load parameter name

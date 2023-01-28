@@ -1,11 +1,11 @@
-package com.moon.scripting.documentation.markdown.generator;
+package com.moon.scripting.markdown.generator;
 
 import com.moon.scripting.documentation.markdown.generator.type.visitor.AnnotationValueVisitor;
+import java.util.List;
 import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
 import org.objectweb.asm.tree.MethodNode;
-import java.util.List;
 
 /**
  * The base generator class used to generate markdown files from class files

@@ -1,4 +1,4 @@
-package com.moon.scripting.documentation.markdown.generator.type;
+package com.moon.scripting.markdown.generator.type;
 
 import com.moon.scripting.documentation.annotation.Description;
 import com.moon.scripting.documentation.annotation.EnumContainer;
@@ -23,8 +23,8 @@ public class EnumGenerator extends Generator {
     public GeneratorResult generate(ClassNode node) {
         String path = "";
         StringBuilder generated = new StringBuilder();
-        AnnotationNode enumNode = findAnnotation(node, AnnotationMappings.getMappingsFor(EnumContainer.class));
-        AnnotationNode descNode = findAnnotation(node, AnnotationMappings.getMappingsFor(Description.class));
+        AnnotationNode enumNode = findAnnotation(node, AnnotationMappings.mappingsFor(EnumContainer.class));
+        AnnotationNode descNode = findAnnotation(node, AnnotationMappings.mappingsFor(Description.class));
         // Append class name if present
         String name = "No name found";
         if (enumNode != null) {
@@ -44,7 +44,7 @@ public class EnumGenerator extends Generator {
                 continue;
             }
             AnnotationNode paramDescNode = findAnnotation(field,
-                AnnotationMappings.getMappingsFor(Description.class));
+                AnnotationMappings.mappingsFor(Description.class));
             String description = "No description";
             // Load enum value description
             if (paramDescNode != null) {
