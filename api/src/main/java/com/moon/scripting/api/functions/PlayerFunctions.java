@@ -133,7 +133,7 @@ public interface PlayerFunctions {
         Vec3d position
     );
 
-    @Description("Sends a packet to the server<br>The packets currently supported: 0x00, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x0A, 0x0B, 0x0F")
+    @Description("Sends a packet to the server<br>The packets currently supported: 0x00, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x0A, 0x0B, 0x0F<br>Always refer to https://wiki.vg/index.php?title=Protocol&oldid=7368#Serverbound_2 when working with packets!")
     void send_packet(
         @Parameter("id")
         @Description("The packet id")
