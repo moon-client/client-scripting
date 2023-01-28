@@ -1,9 +1,9 @@
 package com.moon.scripting.markdown.generator;
 
-import com.moon.scripting.documentation.markdown.generator.type.DataClassGenerator;
-import com.moon.scripting.documentation.markdown.generator.type.EnumGenerator;
-import com.moon.scripting.documentation.markdown.generator.type.FunctionGenerator;
-import com.moon.scripting.documentation.markdown.generator.type.TableInfoGenerator;
+import com.moon.scripting.markdown.generator.type.DataClassGenerator;
+import com.moon.scripting.markdown.generator.type.EnumGenerator;
+import com.moon.scripting.markdown.generator.type.FunctionGenerator;
+import com.moon.scripting.markdown.generator.type.TableInfoGenerator;
 import java.util.HashMap;
 import java.util.Map;
 

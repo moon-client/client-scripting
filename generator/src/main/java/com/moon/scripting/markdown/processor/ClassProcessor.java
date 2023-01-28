@@ -1,9 +1,9 @@
 package com.moon.scripting.markdown.processor;
 
-import com.moon.scripting.documentation.markdown.generator.Generator;
-import com.moon.scripting.documentation.markdown.generator.GeneratorFactory;
-import com.moon.scripting.documentation.markdown.generator.GeneratorResult;
-import com.moon.scripting.documentation.markdown.generator.GeneratorType;
+import com.moon.scripting.markdown.generator.Generator;
+import com.moon.scripting.markdown.generator.GeneratorFactory;
+import com.moon.scripting.markdown.generator.GeneratorResult;
+import com.moon.scripting.markdown.generator.GeneratorType;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;

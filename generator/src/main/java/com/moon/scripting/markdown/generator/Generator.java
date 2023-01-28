@@ -1,6 +1,6 @@
 package com.moon.scripting.markdown.generator;
 
-import com.moon.scripting.documentation.markdown.generator.type.visitor.AnnotationValueVisitor;
+import com.moon.scripting.markdown.generator.type.visitor.AnnotationValueVisitor;
 import java.util.List;
 import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;

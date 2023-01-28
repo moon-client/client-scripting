@@ -2,9 +2,9 @@ package com.moon.scripting.markdown.generator.type;
 
 import com.moon.scripting.documentation.annotation.Description;
 import com.moon.scripting.documentation.annotation.EnumContainer;
-import com.moon.scripting.documentation.markdown.generator.Generator;
-import com.moon.scripting.documentation.markdown.generator.GeneratorResult;
-import com.moon.scripting.documentation.markdown.processor.AnnotationMappings;
+import com.moon.scripting.markdown.generator.Generator;
+import com.moon.scripting.markdown.generator.GeneratorResult;
+import com.moon.scripting.markdown.processor.AnnotationMappings;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.Text;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
