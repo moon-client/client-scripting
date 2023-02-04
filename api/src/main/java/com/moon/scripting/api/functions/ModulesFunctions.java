@@ -38,6 +38,9 @@ public interface ModulesFunctions {
         @Parameter("module")
         @Description("The module the setting will be added to")
         String module,
+        @Parameter("id")
+        @Description("The id of the setting (used for configs)")
+        String id,
         @Parameter("name")
         @Description("The name of the setting")
         String name,
@@ -51,6 +54,9 @@ public interface ModulesFunctions {
         @Parameter("module")
         @Description("The module the setting will be added to")
         String module,
+        @Parameter("id")
+        @Description("The id of the setting (used for configs)")
+        String id,
         @Parameter("name")
         @Description("The name of the setting")
         String name,
@@ -73,6 +79,9 @@ public interface ModulesFunctions {
         @Parameter("module")
         @Description("The module the setting will be added to")
         String module,
+        @Parameter("id")
+        @Description("The id of the setting (used for configs)")
+        String id,
         @Parameter("name")
         @Description("The name of the setting")
         String name,
@@ -95,6 +104,9 @@ public interface ModulesFunctions {
         @Parameter("module")
         @Description("The module the setting will be added to")
         String module,
+        @Parameter("id")
+        @Description("The id of the setting (used for configs)")
+        String id,
         @Parameter("name")
         @Description("The name of the setting")
         String name,
@@ -108,6 +120,9 @@ public interface ModulesFunctions {
         @Parameter("module")
         @Description("The module the setting will be added to")
         String module,
+        @Parameter("id")
+        @Description("The id of the setting (used for configs)")
+        String id,
         @Parameter("name")
         @Description("The name of the setting")
         String name,
@@ -121,8 +136,8 @@ public interface ModulesFunctions {
         @Parameter("module")
         @Description("The module which contains the setting")
         String module,
-        @Parameter("name")
-        @Description("The setting name")
-        String name
+        @Parameter("id")
+        @Description("The id of the setting")
+        String id
     );
 }
