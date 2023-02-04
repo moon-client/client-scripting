@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.moon.scripting"
-version = "1.0.14-SNAPSHOT"
+version = "1.0.16-SNAPSHOT"
 
 repositories {
     mavenCentral()

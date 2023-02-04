@@ -32,4 +32,87 @@ public interface ModulesFunctions {
         @Description("The module table containing all event hooks, you can find all available events [here](../tables/events.md)")
         LuaTable table
     );
+
+    @Description("Used to create a boolean setting for a scripting module")
+    void create_boolean_setting(
+        @Parameter("module")
+        @Description("The module the setting will be added to")
+        String module,
+        @Parameter("name")
+        @Description("The name of the setting")
+        String name,
+        @Parameter("default")
+        @Description("The default value of the setting")
+        boolean defaultValue
+    );
+
+    @Description("Used to create a integer setting for a scripting module")
+    void create_integer_setting(
+        @Parameter("module")
+        @Description("The module the setting will be added to")
+        String module,
+        @Parameter("name")
+        @Description("The name of the setting")
+        String name,
+        @Parameter("default")
+        @Description("The default value of the setting (ideally in-between of min and max)")
+        int defaultValue,
+        @Parameter("default")
+        @Description("The minimum value allowed")
+        int min,
+        @Parameter("default")
+        @Description("The maximum value allowed")
+        int max,
+        @Parameter("default")
+        @Description("The increment amount")
+        int increment
+    );
+
+    @Description("Used to create a float setting for a scripting module")
+    void create_float_setting(
+        @Parameter("module")
+        @Description("The module the setting will be added to")
+        String module,
+        @Parameter("name")
+        @Description("The name of the setting")
+        String name,
+        @Parameter("default")
+        @Description("The default value of the setting (ideally in-between of min and max)")
+        float defaultValue,
+        @Parameter("default")
+        @Description("The minimum value allowed")
+        float min,
+        @Parameter("default")
+        @Description("The maximum value allowed")
+        float max,
+        @Parameter("default")
+        @Description("The increment amount")
+        float increment
+    );
+
+    @Description("Used to create a color setting for a scripting module")
+    void create_color_setting(
+        @Parameter("module")
+        @Description("The module the setting will be added to")
+        String module,
+        @Parameter("name")
+        @Description("The name of the setting")
+        String name,
+        @Parameter("default")
+        @Description("The default value of the setting")
+        int defaultValue
+    );
+
+    @Description("Used to create a text setting for a scripting module")
+    void create_text_setting(
+        @Parameter("module")
+        @Description("The module the setting will be added to")
+        String module,
+        @Parameter("name")
+        @Description("The name of the setting")
+        String name,
+        @Parameter("default")
+        @Description("The default value of the setting")
+        String defaultValue
+    );
 }
