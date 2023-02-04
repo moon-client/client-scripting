@@ -65,13 +65,19 @@ public interface EventsTable {
     void on_packet_send(
         @Parameter("packet_id")
         @Description("The packet id")
-        int packetId
+        int packetId,
+        @Parameter("cancel")
+        @Description("Whether the packet sending should be canceled or not")
+        boolean cancel
     );
 
     @Description("Called once the client receives a packet from the server.<br>Additional parameters are available for specific packets.<br>Editing is currently supported for the following packets: 0x08<br>Only reading additionally is supported for the following packets: 0x02")
     void on_packet_receive(
         @Parameter("packet_id")
         @Description("The packet id")
-        int packetId
+        int packetId,
+        @Parameter("cancel")
+        @Description("Whether the packet processing should be canceled or not")
+        boolean cancel
     );
 }
