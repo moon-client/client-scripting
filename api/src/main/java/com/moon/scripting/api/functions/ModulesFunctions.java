@@ -57,13 +57,13 @@ public interface ModulesFunctions {
         @Parameter("default")
         @Description("The default value of the setting (ideally in-between of min and max)")
         int defaultValue,
-        @Parameter("default")
+        @Parameter("min")
         @Description("The minimum value allowed")
         int min,
-        @Parameter("default")
+        @Parameter("max")
         @Description("The maximum value allowed")
         int max,
-        @Parameter("default")
+        @Parameter("increment")
         @Description("The increment amount")
         int increment
     );
@@ -79,13 +79,13 @@ public interface ModulesFunctions {
         @Parameter("default")
         @Description("The default value of the setting (ideally in-between of min and max)")
         float defaultValue,
-        @Parameter("default")
+        @Parameter("min")
         @Description("The minimum value allowed")
         float min,
-        @Parameter("default")
+        @Parameter("max")
         @Description("The maximum value allowed")
         float max,
-        @Parameter("default")
+        @Parameter("increment")
         @Description("The increment amount")
         float increment
     );
