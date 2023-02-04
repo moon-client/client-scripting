@@ -115,4 +115,14 @@ public interface ModulesFunctions {
         @Description("The default value of the setting")
         String defaultValue
     );
+
+    @Description("Returns the value of a setting")
+    Object get_setting(
+        @Parameter("module")
+        @Description("The module which contains the setting")
+        String module,
+        @Parameter("name")
+        @Description("The setting name")
+        String name
+    );
 }
