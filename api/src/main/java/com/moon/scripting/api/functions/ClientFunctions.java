@@ -16,6 +16,26 @@ public interface ClientFunctions {
         @Description("The message which is going to be printed")
         String message
     );
+
+    @Description("Returns if a given key is pressed")
+    boolean is_key_down(
+        @Parameter("key")
+        @Description("The key")
+        int key
+    );
+
+    @Description("Returns if a given mouse button is pressed")
+    boolean is_mouse_down(
+        @Parameter("button")
+        @Description("The button")
+        int button
+    );
+
+    @Description("Returns the current fps")
+    int fps();
+
+    @Description("Returns the current time in millis")
+    long time();
 }
 
 
