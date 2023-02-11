@@ -33,6 +33,30 @@ public interface ModulesFunctions {
         LuaTable table
     );
 
+    @Description("Returns whether a module is enabled or not")
+    boolean is_enabled(
+        @Parameter("name")
+        @Description("The name of the module")
+        String name
+    );
+
+    @Description("Sets the enabled state of a module")
+    void set_state(
+        @Parameter("name")
+        @Description("The name of the module to update the state of")
+        String name,
+        @Parameter("state")
+        @Description("The new module state")
+        boolean state
+    );
+
+    @Description("Toggles a module")
+    void toggle(
+        @Parameter("name")
+        @Description("The name of the module to toggle")
+        String name
+    );
+
     @Description("Used to create a boolean setting for a scripting module")
     void create_boolean_setting(
         @Parameter("module")

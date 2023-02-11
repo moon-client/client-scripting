@@ -17,6 +17,13 @@ public interface ClientFunctions {
         String message
     );
 
+    @Description("Sets the timer speed of the current game")
+    void set_timer_speed(
+        @Parameter("speed")
+        @Description("The new timer speed")
+        double speed
+    );
+
     @Description("Returns if a given key is pressed")
     boolean is_key_down(
         @Parameter("key")
