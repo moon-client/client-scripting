@@ -71,7 +71,7 @@ public interface EventsTable {
         boolean cancel
     );
 
-    @Description("Called once the client receives a packet from the server.<br>Additional parameters are available for specific packets.<br>Editing is currently supported for the following packets: 0x08<br>Only reading additionally is supported for the following packets: 0x02")
+    @Description("Called once the client receives a packet from the server.<br>Additional parameters are available for specific packets.<br>Editing is currently supported for the following packets: 0x08<br>Only reading additionally is supported for the following packets: 0x02, 0x14, 0x27")
     void on_packet_receive(
         @Parameter("packet_id")
         @Description("The packet id")
