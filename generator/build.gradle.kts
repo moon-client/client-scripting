@@ -3,8 +3,8 @@ plugins {
     id("application")
 }
 
-group = "com.moon"
-version = "1.0-SNAPSHOT"
+group = "com.moon.scripting"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -27,7 +27,7 @@ dependencies {
     implementation("org.tinylog:tinylog-impl:2.5.0")
     implementation(files("lib/markdown.jar"))
     implementation("commons-io:commons-io:2.11.0")
-    implementation(project(":documentation"))
+    implementation(project(":annotations"))
 }
 
 tasks.getByName<Test>("test") {
