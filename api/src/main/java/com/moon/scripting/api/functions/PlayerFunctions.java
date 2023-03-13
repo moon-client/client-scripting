@@ -180,7 +180,7 @@ public interface PlayerFunctions {
         int entityId
     );
 
-    @Description("Calculates te yaw and pitch for looking at the given position")
+    @Description("Calculates the yaw and pitch for looking at the given position")
     Vec2f rotations_to(
         @Parameter("position")
         @Description("The position")
