@@ -10,7 +10,7 @@ rm -r ./book/src
 mkdir ./book/src
 cp -a ./generator/generated/. ./book/src
 
-# Generate book.
+# Generate book
 # shellcheck disable=SC2164
 cd book
 cargo install mdbook
