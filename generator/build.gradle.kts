@@ -8,6 +8,14 @@ version = "1.0.0"
 
 repositories {
     mavenCentral()
+    maven {
+        name = "MoonNexus"
+        url = uri("https://nexus.moonclient.dev/repository/moon-maven/")
+        credentials {
+            username = project.property("com.moon.nexus.username").toString()
+            password = project.property("com.moon.nexus.password").toString()
+        }
+    }
 }
 
 application {
@@ -27,7 +35,8 @@ dependencies {
     implementation("org.tinylog:tinylog-impl:2.5.0")
     implementation(files("lib/markdown.jar"))
     implementation("commons-io:commons-io:2.11.0")
-    implementation(project(":annotations"))
+    //implementation(project(":annotations"))
+    implementation("com.moon:client-scripting-annotations:1.1.0")
 }
 
 tasks.getByName<Test>("test") {
