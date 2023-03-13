@@ -8,51 +8,40 @@ version = "1.0.21-SNAPSHOT"
 
 repositories {
     mavenCentral()
-
-    // Internal Moon libraries
-    maven {
-        url = uri("https://aids.moonclient.xyz")
-        credentials {
-            username = "aids"
-            password = project.property("com.moon.aids.token").toString()
-        }
-        authentication { create<BasicAuthentication>("header") }
-    }
 }
 
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
-    implementation(project(":documentation"))
+    implementation(project(":annotations"))
     implementation("org.luaj:luaj-jse:3.0.1")
     compileOnly("org.projectlombok:lombok:1.18.24")
     annotationProcessor("org.projectlombok:lombok:1.18.24")
 }
 
+java { toolchain { languageVersion.set(JavaLanguageVersion.of(17)) } }
+
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
 }
 
-
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            groupId = "${project.group}"
-            artifactId = "api"
+            groupId = "com.moon"
+            artifactId = "client-scripting-api"
             version = version
             from(components["java"])
         }
     }
     repositories {
-        // The aids dependency repository
         maven {
-            name = "aids"
-            url = uri("https://aids.moonclient.xyz")
+            name = "MoonNexus"
+            url = uri("https://nexus.moonclient.dev/repository/moon-maven/")
             credentials {
-                username = "aids"
-                password = project.property("com.moon.aids.token").toString()
+                username = project.property("com.moon.nexus.username").toString()
+                password = project.property("com.moon.nexus.password").toString()
             }
-            authentication { create<BasicAuthentication>("header") }
         }
     }
 }
