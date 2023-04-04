@@ -1,16 +1,16 @@
 /*
 
-!gradle/
-!generator/
-!documentation/
+!annotations/
 !api/
 !book/
+!generator/
+!gradle/
 !webhook/
+!.editorconfig
 !.gitignore
 !build.gradle.kts
+!deploy.sh
 !gradlew
 !gradlew.bat
 !README.md
 !settings.gradle.kts
-!deploy.sh
-!.editorconfig
