@@ -23,19 +23,19 @@ application {
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.2")
     implementation("org.ow2.asm:asm:9.4")
     implementation("org.ow2.asm:asm-tree:9.4")
     implementation("org.ow2.asm:asm-commons:9.4")
     implementation("org.ow2.asm:asm-util:9.4")
-    compileOnly("org.projectlombok:lombok:1.18.24")
-    annotationProcessor("org.projectlombok:lombok:1.18.24")
-    implementation("org.tinylog:tinylog-api:2.5.0")
-    implementation("org.tinylog:tinylog-impl:2.5.0")
+    compileOnly("org.projectlombok:lombok:1.18.26")
+    annotationProcessor("org.projectlombok:lombok:1.18.26")
+    implementation("org.tinylog:tinylog-api:2.6.1")
+    implementation("org.tinylog:tinylog-impl:2.6.1")
     implementation(files("lib/markdown.jar"))
     implementation("commons-io:commons-io:2.11.0")
-    //implementation(project(":annotations"))
+    implementation(project(":annotations"))
     implementation("com.moon:client-scripting-annotations:1.1.0")
 }
 
