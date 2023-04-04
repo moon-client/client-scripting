@@ -57,6 +57,19 @@ public interface ModulesFunctions {
         String name
     );
 
+    @Description("Sets the value of a setting<br>Some settings have to be treated differently:<br>- Modes / Enums: Please use the number index of the setting (starts from 0)<br>Multiple Choice: Please use the number index, you can only toggle ONE at a time, please be aware of that (starts from 0)")
+    void set_setting(
+        @Parameter("name")
+        @Description("The name of the module which contains the setting you want to change")
+        String name,
+        @Parameter("setting_id")
+        @Description("The id of the setting you want to change, if you don't know what it is just save a config and take a look at that")
+        String setting_name,
+        @Parameter("value")
+        @Description("The new value<br>BEWARE: Observe the formats described in the methods description")
+        Object value
+    );
+
     @Description("Used to create a boolean setting for a scripting module")
     void create_boolean_setting(
         @Parameter("module")

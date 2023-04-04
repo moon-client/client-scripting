@@ -17,6 +17,13 @@ public interface ClientFunctions {
         String message
     );
 
+    @Description("Sends a message into the minecraft chat")
+    void message(
+        @Parameter("message")
+        @Description("The message which is going to be sent in chat")
+        String message
+    );
+
     @Description("Sets the timer speed of the current game")
     void set_timer_speed(
         @Parameter("speed")
