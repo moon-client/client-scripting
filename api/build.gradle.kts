@@ -28,6 +28,10 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.26")
 }
 
+tasks.getByName<Jar>("jar") {
+    archiveFileName.set("scripting-api.jar")
+}
+
 java { toolchain { languageVersion.set(JavaLanguageVersion.of(17)) } }
 
 tasks.getByName<Test>("test") {
