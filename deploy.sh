@@ -1,6 +1,6 @@
 git pull
 
-# Build and move api jar
+# Build and move api jar.
 ./gradlew :api:jar
 cp ./api/build/libs/api-1.0.21.jar ./generator/input.jar
 
