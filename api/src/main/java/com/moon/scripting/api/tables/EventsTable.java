@@ -61,7 +61,7 @@ public interface EventsTable {
         double z
     );
 
-    @Description("Called once the client sends a packet to the server.<br>Additional parameters are available for specific packets.<br>Editing is currently supported for the following packets: 0x00, 0x03, 0x04, 0x05, 0x06, 0x0F")
+    @Description("Called once the client sends a packet to the server.<br>Additional parameters are available for specific packets.<br>Editing is currently supported for the following packets: 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x11, 0x13, 0x14, 0x18, 0x19, 0x0B, 0x0C, 0x0E, 0x0F")
     void on_packet_send(
         @Parameter("packet_id")
         @Description("The packet id")
@@ -71,7 +71,7 @@ public interface EventsTable {
         boolean cancel
     );
 
-    @Description("Called once the client receives a packet from the server.<br>Additional parameters are available for specific packets.<br>Editing is currently supported for the following packets: 0x08<br>Only reading additionally is supported for the following packets: 0x02, 0x14, 0x27")
+    @Description("Called once the client receives a packet from the server.<br>Additional parameters are available for specific packets.<br>Editing is currently supported for the following packets: 0x00, 0x08, 0x14, 0x27, 0x32, 0x48<br>Only reading additionally is supported for the following packets: 0x02")
     void on_packet_receive(
         @Parameter("packet_id")
         @Description("The packet id")
