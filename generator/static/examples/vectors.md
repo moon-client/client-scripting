@@ -14,11 +14,11 @@ predefining what values you want to have on each dimension.
 
 ```lua
 -- Create a vector with default values (0)
-local default = types.vec2f:empty()
+local default = types.vec2f.empty()
 local default_x = default.x -- Will be 0 in this case
 
 -- Create a vector with pre-defined values
-local defined = types.vec2f:new(5, 10)
+local defined = types.vec2f.new(5, 10)
 local defined_x = defined.x -- Will be 5 in this case
 
 -- Redefining a vectors values

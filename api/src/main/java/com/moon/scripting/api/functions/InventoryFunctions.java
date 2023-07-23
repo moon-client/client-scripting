@@ -54,7 +54,7 @@ public interface InventoryFunctions {
     );
 
     @Description("Gets an item out of the given window id")
-    Item get_item(
+    Item get_item_in_window(
         @Parameter("window_id")
         @Description("The window id")
         int window_id,

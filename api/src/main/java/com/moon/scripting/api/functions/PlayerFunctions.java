@@ -167,7 +167,7 @@ public interface PlayerFunctions {
     );
 
     @Description("Calculates the distance between the given vector and the player position")
-    double distance_to(
+    double distance_to_vec(
         @Parameter("vec")
         @Description("The target vector")
         Vec3d vec

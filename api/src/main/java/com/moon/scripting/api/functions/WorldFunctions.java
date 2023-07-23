@@ -35,7 +35,7 @@ public interface WorldFunctions {
     );
 
     @Description("Returns the block at the given vector coordinates")
-    Block get_block_at(
+    Block get_block_at_vec(
         @Parameter("vec")
         @Description("The vector coordinates")
         Vec3d vec
