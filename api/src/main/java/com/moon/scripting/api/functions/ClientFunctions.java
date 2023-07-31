@@ -50,6 +50,9 @@ public interface ClientFunctions {
 
     @Description("Returns the current time in millis")
     long time();
+
+    @Description("Returns the current kill-aura target id or -1 if none is present")
+    int current_kill_aura_target();
 }
 
 

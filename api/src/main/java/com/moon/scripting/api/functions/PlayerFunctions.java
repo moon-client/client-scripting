@@ -250,6 +250,9 @@ public interface PlayerFunctions {
     @Description("Returns the players previous position")
     Vec3d get_prev_position();
 
+    @Description("Returns if the player is moving")
+    boolean is_moving();
+
     @Description("Returns if the player is on ground")
     boolean is_on_ground();
 
@@ -268,6 +271,9 @@ public interface PlayerFunctions {
     @Description("Returns if the player is in lava")
     boolean is_in_lava();
 
+    @Description("Returns if the player is on a ladder")
+    boolean is_on_ladder();
+
     @Description("Returns if the player is burning")
     boolean is_burning();
 
@@ -282,9 +288,6 @@ public interface PlayerFunctions {
 
     @Description("Returns if the player is riding a vehicle")
     boolean is_riding();
-
-    @Description("Returns if the player is on a ladder")
-    boolean is_on_ladder();
 
     @Description("Returns if the player is currently colliding with anything vertically")
     boolean collided_vertically();

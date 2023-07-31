@@ -14,20 +14,23 @@ public class Block {
     @Description("The name of the block")
     public String name;
     @Description("Whether the block has a full bounding box or not")
-    public boolean fullBlock;
+    public boolean full_block;
     @Description("Whether the block is translucent or not (used while rendering)")
     public boolean translucent;
     @Description("The hardness of the block")
-    public float blockHardness;
+    public float block_hardness;
+    @Description("The relative hardness of the block")
+    public float relative_hardness;
     @Description("The slipperiness of the block")
     public float slipperiness;
 
-    public Block(String name, boolean fullBlock, boolean translucent, float blockHardness, float slipperiness) {
+    public Block(String name, boolean fullBlock, boolean translucent, float blockHardness, float relativeHardness, float slipperiness) {
         this.name = name;
-        this.fullBlock = fullBlock;
+        this.full_block = fullBlock;
         this.translucent = translucent;
-        this.blockHardness = blockHardness;
+        this.block_hardness = blockHardness;
         this.slipperiness = slipperiness;
+        this.relative_hardness = relativeHardness;
     }
 
     public Block() {

@@ -28,6 +28,9 @@ public interface ModulesFunctions {
         @Parameter("display_name")
         @Description("The display name of the module, used in arraylist and clickgui")
         String displayName,
+        @Parameter("description")
+        @Description("The description of the module, shown in the clickgui")
+        String description,
         @Parameter("table")
         @Description("The module table containing all event hooks, you can find all available events [here](../tables/events.md)")
         LuaTable table
