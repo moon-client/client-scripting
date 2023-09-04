@@ -14,6 +14,7 @@ import java.util.Objects;
 import java.util.zip.ZipFile;
 import net.steppschuh.markdowngenerator.link.Link;
 import net.steppschuh.markdowngenerator.list.ListBuilder;
+import net.steppschuh.markdowngenerator.list.UnorderedList;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 import org.objectweb.asm.tree.ClassNode;
 import org.tinylog.Logger;
@@ -76,7 +77,6 @@ public class MarkdownApplication {
                 // Create list of generator results for category if absent
                 String path = result.getPath().split("/")[0];
                 List<GeneratorResult> results = categoryMap.computeIfAbsent(path, (k) -> new ArrayList<>());
-
                 results.add(result);
             }
         }
@@ -86,11 +86,32 @@ public class MarkdownApplication {
         categoryList.append(new Link("Introduction", "README.md"));
         for (String path : categoryMap.keySet()) {
             List<GeneratorResult> results = categoryMap.get(path);
+            Map<String, ListBuilder> parentLists = new HashMap<>();
+            Map<String, ListBuilder> ownerLists = new HashMap<>();
             ListBuilder linkList = new ListBuilder();
             for (GeneratorResult result : results) {
-                linkList.append(new Link(result.getName(), result.getPath() + ".md"));
+                String name = result.getName();
+                String[] splitName = name.split("/");
+                if (splitName.length > 1) {
+                    String directory = splitName[0];
+                    ListBuilder listBuilder = parentLists.computeIfAbsent(directory, (key) -> {
+                        ListBuilder parentListBuilder = new ListBuilder();
+                        parentListBuilder.append(new Link(directory, path + "/" + directory + ".md"));
+                        ListBuilder childList = new ListBuilder();
+                        parentListBuilder.append(childList);
+                        ownerLists.put(directory, parentListBuilder);
+                        return childList;
+                    });
+                    listBuilder.append(new Link(splitName[1], result.getPath() + ".md"));
+                } else {
+                    linkList.append(new Link(name, result.getPath() + ".md"));
+                }
             }
             categoryList.append(new Link(path, path + ".md"));
+            for (String s : parentLists.keySet()) {
+                ListBuilder listBuilderParent = ownerLists.get(s);
+                categoryList.append(listBuilderParent);
+            }
             categoryList.append(linkList);
         }
         summaryContent.append(categoryList).append("\n");

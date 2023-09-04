@@ -6,7 +6,7 @@ import com.moon.scripting.documentation.annotation.FunctionContainer;
 import com.moon.scripting.documentation.annotation.Parameter;
 
 @FunctionContainer(
-    value = "render.immediate",
+    value = "render/immediate",
     path = "functions/render/immediate"
 )
 @Description("Contains non-recommended rendering functions for immediate rendering<br><br>## USAGE NOT RECOMMENDED ##<br><bold>Please refer to `render.batched` for proper rendering!<bold>")
