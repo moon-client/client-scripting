@@ -11,7 +11,7 @@ import com.moon.scripting.documentation.annotation.Parameter;
     value = "render/batched",
     path = "functions/render/batched"
 )
-@Description("Contains recommended rendering functions for batched rendering")
+@Description("Contains recommended rendering functions for batched rendering, please refer to the rendering examples for a proper tutorial")
 public interface BatchedRenderFunctions {
     @Description("Prepares a batch for future insertion and rendering")
     RenderBatch prepare_batch(
