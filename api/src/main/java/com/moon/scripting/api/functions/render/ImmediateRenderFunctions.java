@@ -1,4 +1,4 @@
-package com.moon.scripting.api.functions;
+package com.moon.scripting.api.functions.render;
 
 import com.moon.scripting.api.enums.CustomFontType;
 import com.moon.scripting.documentation.annotation.Description;
