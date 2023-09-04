@@ -148,13 +148,13 @@ public interface ImmediateRenderFunctions {
 
     void text(
         @Parameter("font_type")
-            @Description("The type of font to render the text with")
+        @Description("The type of font to render the text with")
         CustomFontType fontType,
         @Parameter("text")
-            @Description("The text to be rendered")
+        @Description("The text to be rendered")
         String text,
         @Parameter("size")
-            @Description("The font size to use")
+        @Description("The font size to use")
         float size,
         @Parameter("x")
         @Description("The x position")
