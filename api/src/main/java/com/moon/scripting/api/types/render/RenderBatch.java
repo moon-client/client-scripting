@@ -17,6 +17,6 @@ public abstract class RenderBatch {
         @Description("The render template to add, you can find a list of available render templates in `types.templates`")
         RenderTemplate template);
 
-    @Description("Renders this current render_batch, this can only be done ONCE")
+    @Description("Renders this current render_batch, this can only be done **once**")
     public abstract void render();
 }
