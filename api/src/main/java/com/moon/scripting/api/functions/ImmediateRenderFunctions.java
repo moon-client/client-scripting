@@ -125,4 +125,23 @@ public interface ImmediateRenderFunctions {
         @Description("The color")
         int color
     );
+
+    @Description("Renders a text with the minecraft font at the given position")
+    void minecraft_text(
+        @Parameter("text")
+        @Description("The text to be rendered")
+        String text,
+        @Parameter("x")
+        @Description("The x position")
+        float x,
+        @Parameter("y")
+        @Description("The y position")
+        float y,
+        @Parameter("color")
+        @Description("The color")
+        int color,
+        @Parameter("shadow")
+        @Description("Whether to apply a drop-shadow or not")
+        boolean shadow
+    );
 }
