@@ -8,7 +8,7 @@ import com.moon.scripting.documentation.annotation.Parameter;
     value = "render.immediate",
     path = "functions/render/immediate"
 )
-@Description("Contains non-recommended rendering functions for immediate rendering<br><br>## NOT RECOMMENDED<br><bold>Please refer to `render.batched` for proper rendering!<bold>")
+@Description("Contains non-recommended rendering functions for immediate rendering<br><br>## USAGE NOT RECOMMENDED ##<br><bold>Please refer to `render.batched` for proper rendering!<bold>")
 public interface ImmediateRenderFunctions {
     @Description("Renders a rectangle at the given position with the given boundaries and color")
     void rect(
