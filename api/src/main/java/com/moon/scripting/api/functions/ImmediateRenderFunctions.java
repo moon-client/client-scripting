@@ -1,5 +1,6 @@
 package com.moon.scripting.api.functions;
 
+import com.moon.scripting.api.enums.CustomFontType;
 import com.moon.scripting.documentation.annotation.Description;
 import com.moon.scripting.documentation.annotation.FunctionContainer;
 import com.moon.scripting.documentation.annotation.Parameter;
@@ -131,6 +132,30 @@ public interface ImmediateRenderFunctions {
         @Parameter("text")
         @Description("The text to be rendered")
         String text,
+        @Parameter("x")
+        @Description("The x position")
+        float x,
+        @Parameter("y")
+        @Description("The y position")
+        float y,
+        @Parameter("color")
+        @Description("The color")
+        int color,
+        @Parameter("shadow")
+        @Description("Whether to apply a drop-shadow or not")
+        boolean shadow
+    );
+
+    void text(
+        @Parameter("font_type")
+            @Description("The type of font to render the text with")
+        CustomFontType fontType,
+        @Parameter("text")
+            @Description("The text to be rendered")
+        String text,
+        @Parameter("size")
+            @Description("The font size to use")
+        float size,
         @Parameter("x")
         @Description("The x position")
         float x,
