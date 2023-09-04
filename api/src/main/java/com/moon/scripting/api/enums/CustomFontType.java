@@ -2,7 +2,6 @@ package com.moon.scripting.api.enums;
 
 import com.moon.scripting.documentation.annotation.Description;
 import com.moon.scripting.documentation.annotation.EnumContainer;
-import com.moon.scripting.documentation.annotation.Parameter;
 
 @EnumContainer(
     value = "custom_font_type",
@@ -26,6 +25,6 @@ public enum CustomFontType {
     MATERIAL_ICONS,
     @Description("Material Symbols Outlined Regular (https://fonts.google.com/icons for more information)")
     MATERIAL_SYMBOLS_OUTLINED_REGULAR,
-    @Parameter("Volte Semi Bold")
+    @Description("Volte Semi Bold")
     VOLTE_SEMI_BOLD
 }
