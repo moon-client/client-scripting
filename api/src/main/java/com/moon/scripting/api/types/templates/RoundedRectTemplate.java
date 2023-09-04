@@ -4,7 +4,7 @@ import com.moon.scripting.documentation.annotation.DataClassContainer;
 import com.moon.scripting.documentation.annotation.Description;
 
 @DataClassContainer(
-    value = "rounded_rect",
+    value = "template/rounded_rect",
     path = "types/template/rounded_rect"
 )
 @Description("Contains information about a rounded_rect to be drawn")

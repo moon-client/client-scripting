@@ -4,7 +4,7 @@ import com.moon.scripting.documentation.annotation.DataClassContainer;
 import com.moon.scripting.documentation.annotation.Description;
 
 @DataClassContainer(
-    value = "gradient",
+    value = "template/gradient",
     path = "types/template/gradient"
 )
 @Description("Contains information about a gradient to be drawn")

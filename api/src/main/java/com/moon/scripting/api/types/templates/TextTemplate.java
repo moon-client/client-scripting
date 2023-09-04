@@ -4,7 +4,7 @@ import com.moon.scripting.documentation.annotation.DataClassContainer;
 import com.moon.scripting.documentation.annotation.Description;
 
 @DataClassContainer(
-    value = "text",
+    value = "template/text",
     path = "types/template/text"
 )
 @Description("Contains information about a text to be drawn")

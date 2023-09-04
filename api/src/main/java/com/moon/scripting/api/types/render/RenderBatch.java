@@ -14,7 +14,7 @@ public abstract class RenderBatch {
     @Description("Puts the given render_template into the batch, make sure it matches the type you defined on creation")
     public abstract void add(
         @Parameter("template")
-        @Description("The render template to add, you can find a list of available render templates in `types.templates`")
+        @Description("The render template to add, you can find a list of available render templates in `types.template`")
         RenderTemplate template);
 
     @Description("Renders this current render_batch, this can only be done **once**")
