@@ -80,4 +80,31 @@ public interface EventsTable {
         @Description("Whether the packet processing should be canceled or not")
         boolean cancel
     );
+
+    @Description("Called once the overlay of the client is being rendered")
+    void on_overlay_render(
+        @Parameter("partial_ticks")
+        @Description("The partial ticks")
+        float partialTicks,
+        @Parameter("pre")
+        @Description("Whether its pre or post overlay render")
+        boolean pre
+    );
+
+    @Description("Called once the world is rendered")
+    void on_world_render(
+        @Parameter("partial_ticks")
+        @Description("The partial ticks")
+        float partialTicks
+    );
+
+    @Description("Called once any blur effects are rendered (shadow, blur)")
+    void on_effect_render(
+        @Parameter("blur")
+        @Description("Whether the blur or shadow is called")
+        boolean blur,
+        @Parameter("partial_ticks")
+        @Description("The partial ticks")
+        float partialTicks
+    );
 }
