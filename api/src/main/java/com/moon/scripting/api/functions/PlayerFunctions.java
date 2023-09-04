@@ -199,6 +199,12 @@ public interface PlayerFunctions {
     @Description("Swings the players item")
     void swing_item();
 
+    @Description("Uses the current held item")
+    void use_item();
+
+    @Description("Returns whether the player is on edge or not")
+    boolean is_on_edge();
+
     @Description("Returns the current forward and strafe the player is moving at")
     Vec2f get_input();
 

@@ -180,6 +180,13 @@ public interface WorldFunctions {
         int entityId
     );
 
+    @Description("Returns the item the entity is holding")
+    String held_item(
+        @Parameter("entity_id")
+        @Description("The entity id")
+        int entityId
+    );
+
     @Description("Returns the current width of the given entity id")
     float get_width(
         @Parameter("entity_id")
