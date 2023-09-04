@@ -9,7 +9,7 @@ import com.moon.scripting.documentation.annotation.Parameter;
     value = "render/render_batch",
     path = "types/render/render_batch"
 )
-@Description("Contains information about a block retrieved from the local world")
+@Description("Contains information about a current render batch which is soon to be drawn")
 public abstract class RenderBatch {
     @Description("Puts the given render_template into the batch, make sure it matches the type you defined on creation")
     public abstract void add(
