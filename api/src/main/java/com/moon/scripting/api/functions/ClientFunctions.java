@@ -31,6 +31,9 @@ public interface ClientFunctions {
         double speed
     );
 
+    @Description("Forces blur effects to re-draw for smooth animations")
+    void force_effects_redraw();
+
     @Description("Returns if a given key is pressed")
     boolean is_key_down(
         @Parameter("key")
