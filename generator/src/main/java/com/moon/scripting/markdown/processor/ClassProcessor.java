@@ -76,6 +76,9 @@ public class ClassProcessor {
      * @since 1.0.0
      */
     private GeneratorType resolveGeneratorType() {
+        if (node.visibleAnnotations == null) {
+            return null;
+        }
         for (AnnotationNode visibleAnnotation : node.visibleAnnotations) {
             GeneratorType type = GeneratorType.findGeneratorOrNull(visibleAnnotation.desc);
             // If valid type was found return it
