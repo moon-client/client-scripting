@@ -56,6 +56,18 @@ public interface ClientFunctions {
 
     @Description("Returns the current kill-aura target id or -1 if none is present")
     int current_kill_aura_target();
+
+    @Description("Returns the scaled screen width")
+    float get_scaled_width();
+
+    @Description("Returns the scaled screen height")
+    float get_scaled_height();
+
+    @Description("Returns the screen width")
+    float get_width();
+
+    @Description("Returns the screen height")
+    float get_height();
 }
 
 
