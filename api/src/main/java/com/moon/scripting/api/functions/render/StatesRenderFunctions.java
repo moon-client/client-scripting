@@ -5,8 +5,8 @@ import com.moon.scripting.documentation.annotation.FunctionContainer;
 import com.moon.scripting.documentation.annotation.Parameter;
 
 @FunctionContainer(
-    value = "render/states",
-    path = "functions/render/states"
+    value = "render/state",
+    path = "functions/render/state"
 )
 @Description("Allows you to control OpenGL states in a really simple way. More functionality will be added to this later on, for now it is really basic")
 public interface StatesRenderFunctions {
