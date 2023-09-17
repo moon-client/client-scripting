@@ -13,6 +13,8 @@ import lombok.ToString;
 public class Block {
     @Description("The name of the block")
     public String name;
+    @Description("The display name of the block")
+    public String display_name;
     @Description("Whether the block has a full bounding box or not")
     public boolean full_block;
     @Description("Whether the block is translucent or not (used while rendering)")
@@ -24,8 +26,17 @@ public class Block {
     @Description("The slipperiness of the block")
     public float slipperiness;
 
-    public Block(String name, boolean fullBlock, boolean translucent, float blockHardness, float relativeHardness, float slipperiness) {
+    public Block(
+        String name,
+        String displayName,
+        boolean fullBlock,
+        boolean translucent,
+        float blockHardness,
+        float relativeHardness,
+        float slipperiness
+    ) {
         this.name = name;
+        this.display_name = displayName;
         this.full_block = fullBlock;
         this.translucent = translucent;
         this.block_hardness = blockHardness;
