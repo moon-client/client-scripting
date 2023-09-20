@@ -70,6 +70,27 @@ public interface InventoryFunctions {
         int slotId
     );
 
+    @Description("Gets the damage reduction of the given armor item. Returns 0 if the item is not an armor item")
+    double get_damage_reduction(
+        @Parameter("slot_id")
+        @Description("The slot id")
+        int slotId
+    );
+
+    @Description("Gets the damage amount of the given item")
+    double get_damage_amount(
+        @Parameter("slot_id")
+        @Description("The slot id")
+        int slotId
+    );
+
+    @Description("Gets the harvest level of the given item")
+    double get_harvest_level(
+        @Parameter("slot_id")
+        @Description("The slot id")
+        int slotId
+    );
+
     @Description("Returns the upper chest inventory if a chest gui is currently open")
     int upper_container_id();
 
@@ -78,4 +99,7 @@ public interface InventoryFunctions {
 
     @Description("Returns the player's inventory id")
     int player_inventory_id();
+
+    @Description("Returns the current inventory the player is in, returns NIL if player is out of inventory")
+    String current_inventory();
 }

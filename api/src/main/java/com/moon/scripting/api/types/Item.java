@@ -23,6 +23,10 @@ public class Item {
     public int max_damage;
     @Description("The current item damage")
     public int damage;
+    @Description("Returns whether the block is solid if the item is a block. Will always be false otherwise")
+    public boolean solid;
     @Description("The enchantments applied on the item")
     public Enchantment[] enchantments;
+    @Description("The potion effects applied on the item")
+    public Potion[] potions;
 }
